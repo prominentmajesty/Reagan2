@@ -32,6 +32,7 @@ import indomie from '../../public/assets/indomie.png';
 import coke from '../../public/assets/coke.png';
 import arsenal from '../../public/assets/arsenal.png';
 import MM from '../../public/assets/MM.png';
+import google from '../../public/assets/google.jpg';
 
 export default {
     classroom,
@@ -67,5 +68,6 @@ export default {
     rated2,
     Ist,
     trophy1,
-    online_education
+    online_education,
+    google,
 };

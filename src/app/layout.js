@@ -1,5 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import './global.css';
 import { Quicksand } from 'next/font/google';
+import BootstrapClient from '@/components/BootstrapClient';
 
 const quicksand = Quicksand({ subsets: ['latin'] });
 
@@ -10,7 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>{children}</body>
+      <body className={quicksand.className}>
+        {children}
+        <BootstrapClient />
+      </body>
     </html>
   )
 }

@@ -8,6 +8,7 @@ import {HiOutlineMenuAlt2} from 'react-icons/hi';
 import {AiOutlineClose} from 'react-icons/ai';
 
 // liberay import
+import styles from './../app/global.css';
 import Life from './hoverables/Life';
 import News from './hoverables/News';
 import Discover from './hoverables/Discover';
