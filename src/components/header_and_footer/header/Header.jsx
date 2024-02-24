@@ -11,13 +11,13 @@ import Navbar from '@/components/Navbar';
 import Slider from '@/components/Slider';
 import ReaganIcon from '@/components/ReaganIcon';
 import Shadow from '@/components/Shadow';
+import userSession from '@/constants';
 
-function Header() {
-
+function Header({session}) {
   return (
     <>
     <Shadow />
-    <Navbar/>
+    <Navbar session = {session}/>
     <ReaganIcon />
     <Slider />
       <div className={styles.editHeight}>

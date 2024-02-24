@@ -33,6 +33,7 @@ import coke from '../../public/assets/coke.png';
 import arsenal from '../../public/assets/arsenal.png';
 import MM from '../../public/assets/MM.png';
 import google from '../../public/assets/google.jpg';
+import profile from '../../public/assets/profile.jpg';
 
 export default {
     classroom,
@@ -70,4 +71,5 @@ export default {
     trophy1,
     online_education,
     google,
+    profile
 };

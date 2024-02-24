@@ -1,0 +1,40 @@
+.portal {
+    display: flex;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+.right{
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    background-color: rgb(28, 28, 54)
+}
+
+@media (max-width : 1013px) {
+    .right {
+        width: 100%;
+    }
+}
+
+.hanburger{
+    margin-top: 1rem;
+    margin-left: 1.3rem;
+    z-index: 10;
+    display: block;
+}
+.no_hanburger{
+    display: none;
+}
+@media (min-width : 1014px) {
+    .hanburger{
+        display: none;
+    }
+}
+
+@media (max-width : 1014px) {
+    .hanburger{
+        display: block;
+        color: white;
+    }
+}

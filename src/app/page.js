@@ -9,11 +9,15 @@ import Offer from "@/components/offer/Offer";
 import Ratings from "@/components/ratings/Ratings";
 import Trust from "@/components/trust/Trust";
 import Footer from "@/components/header_and_footer/footer/Footer";
+import { auth } from "@/lib/auth";
 
-export default function HomePage() {
+const HomePage = async () => {
+
+  const session = await auth();
+
   return (
     <>
-      <Header />
+      <Header session={session}/>
       <Home />
       <Offer />
       <Awards />
@@ -23,6 +27,8 @@ export default function HomePage() {
     </>
   )
 }
+
+export default HomePage;
 
 // Computer Science Ptoject Topics
 //https://samphina.com.ng/computer-science-project-topics/?gclid=Cj0KCQiAwbitBhDIARIsABfFYII_ExGG2E8hEWkB-O0i2tX3fMeRJLLAT445fnfITr5VkLn1bRbUmHkaAhqREALw_wcB 

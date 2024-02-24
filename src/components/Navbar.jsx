@@ -17,6 +17,7 @@ import MobileLife from './mobile_navbar/MobileLife';
 import MobileNews from './mobile_navbar/MobileNews';
 import MobileDiscover from './mobile_navbar/MobileDiscover';
 import MobileAcademics from './mobile_navbar/MobileAcademics';
+import { handleLogout } from '@/lib/action';
 
 const left_Linkg = [
   {
@@ -76,21 +77,25 @@ const right_Linking = [
     url : '/parents',
     id : 'parents'
   },
-  {
-    key : '4',
-    label : 'Portal',
-    url : '/portal',
-    id : 'portal'
-  },
 ];
 
 const quicksand = Quicksand({ subsets: ['latin'] });
-const get_elems = '';
 
-function Navbar() {
+const Navbar = ({session}) => {
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch(`/api/user/${session?.user.email}/details`);
+      const data = await response.json();
+      setDetails(data);
+    };
+  
+    if (session?.user.id) fetchPosts();
+  }, [session?.user.id]);
 
   const [state, setState] = useState(false);
   const [content, setContent] = useState('');
+  const [detail, setDetails] = useState(null);
 
   const execute = e => {
     setContent(e.target.id);
@@ -104,6 +109,9 @@ function Navbar() {
       <Discover value={content}/>
       <Academics value={content}/>
       <div className='nav-parent desktop'>
+        <div className='handbuger'>
+          <HiOutlineMenuAlt2 size={38} onClick={() => setState(true)} color='white'/>
+        </div>
         {
           left_Linkg.map((left) => (
             <Link 
@@ -130,9 +138,32 @@ function Navbar() {
             </Link>
           ))
         }
-        <div className='handbuger'>
-          <HiOutlineMenuAlt2 size={38} onClick={() => setState(true)} color='white'/>
+        <div className="admin-teacher">
+          {
+            session?.user ? (
+              <div className='auth'>
+                {detail ? detail.map((info) => (
+                  <div className='inner-auth'>
+                    <div className={info?.isTeacher?'inner-auth-child':'remove-action'}>
+                      {info?.isTeacher && <Link href='/portal' className='action'>Portal</Link>}
+                    </div>
+                    <div className={info?.isAdmin?'inner-auth-child':'remove-action'}  >
+                     {info?.isAdmin && <Link href='/admin' className='action'>Admin</Link>}
+                    </div>
+                  </div>
+                )) : <></>}
+                <form action={handleLogout}>
+                  <button className='logout-btn'>Logout</button>
+                </form>
+              </div>
+            ):(
+              <div className='inner-auth-child'>
+                <Link href='/login' className='action'>Login</Link>
+              </div>
+            )
+          }
         </div>
+
       </div>
 
       {/*For Mobile Side bar*/}
@@ -153,7 +184,6 @@ function Navbar() {
         <hr className='hr'/>
         <h4 className='mobile-tags'>Parents</h4>
         <hr className='hr'/>
-        <h4 className='mobile-tags'>Portal</h4>
       </div>
     </>
   )

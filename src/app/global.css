@@ -49,6 +49,53 @@ background-color: rgb(192, 192, 228);
   background-color: rgb(46, 46, 90);
 }
 
+.admin-teacher {
+  margin-left: 2.5rem;
+}
+
+.auth {
+  display: flex;
+  gap: 1rem;
+}
+
+.action{
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+}
+
+.remove-action{
+ background-color: rgb(46, 46, 90);
+ border: 0px;
+ box-shadow: none;
+ display: none;
+}
+
+.inner-auth-child{
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  border: 1.5px solid rgb(207, 211, 207);
+  box-shadow: 0 2px 2px 0 rgba(224, 224, 224, 0.14), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+.logout-btn{
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  background-color: #2d2b42;
+  color: rgb(216, 209, 209);
+  border: 1.5px solid rgb(207, 211, 207);
+  box-shadow: 0 2px 2px 0 rgba(224, 224, 224, 0.14), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+.inner-auth{
+  display: flex;
+  gap: 1rem;
+}
+
 .mobile-sidebar{
   z-index: 10;
   height: 90%;

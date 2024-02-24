@@ -21,7 +21,7 @@ function Footer() {
           </span>
         </div>
         <div className="write-up-second">
-          <span lassName="junior">Junior School <span className='age'>(2-11)</span></span><br />
+          <span className="junior">Junior School <span className='age'>(2-11)</span></span><br />
           <span className="contact">08034672651</span>
         </div>
       </div>
@@ -32,7 +32,7 @@ function Footer() {
         <div className='location'>
           <h6 className='location-h5 add-grey'>
             Spibath Road Akwakuma
-            Owerri Imo Sate
+            Owerri Imo State
           </h6>
           <h6 className='cursor-hand'>Get Directions <FaMapMarkerAlt className='first-arrow-r arrow' size={20}/></h6>
         </div>

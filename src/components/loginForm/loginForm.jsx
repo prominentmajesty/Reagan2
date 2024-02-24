@@ -3,20 +3,21 @@
 import styles from "./loginForm.module.css";
 import { useFormState } from "react-dom";
 import Link from "next/link";
+import { login } from "@/lib/action";
 
 const LoginForm = () => {
-  const [state, formAction] = useFormState('', undefined);
+  const [state, formAction] = useFormState(login, undefined);
 
   return (
     <form className={styles.form} action=''>
 
       <div className="form-email">
-        <label for='email'>Email</label>
+        <label htmlFor='email'>Email</label>
         <input id="email" type="text" className={styles.input} placeholder="username" name="username" />
       </div>
       
       <div className="form-password">
-        <label for='password'>Password</label>
+        <label htmlFor='password'>Password</label>
         <input id="password" type="password" className={styles.input} placeholder="password" name="password" />
       </div>
       
