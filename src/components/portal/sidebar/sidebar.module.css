@@ -4,6 +4,16 @@
     color: white;
 }
 
+.sidebar_contents :hover{
+    cursor: pointer;
+}
+
+.active {
+    background-color: rgb(180, 174, 174);
+    padding: 0.7rem;
+    border-radius: 15px;
+}
+
 .profile_img{
     width: 75px;
     height: 75px;

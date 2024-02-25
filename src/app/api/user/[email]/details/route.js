@@ -9,6 +9,6 @@ export const GET = async (request, { params }) => {
         console.log(res)
         return new Response(JSON.stringify(res), { status: 200 })
     } catch (error) {
-        return new new Response("Failed to fetch prompts created by user", { status: 500 })
+        return new new Response("Failed to fetch data", { status: 500 })
     }
 } 

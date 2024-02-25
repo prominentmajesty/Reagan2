@@ -1,6 +1,11 @@
-/* .hanburger{
+.hanburger{
     margin-top: 1rem;
     margin-left: 1.3rem;
+    z-index: 10;
+    display: block;
+}
+.no_hanburger{
+    display: none;
 }
 @media (min-width : 1014px) {
     .hanburger{
@@ -13,7 +18,4 @@
         display: block;
         color: white;
     }
-} */
-
-
-
+}

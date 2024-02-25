@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './page.module.css';
+import styles from './portal.module.css'
 import Portal from '@/components/portal/Portal';
 
-const page = () => {
+const PortalPage = () => {
   return (
     <>
       <Portal/>
@@ -10,4 +10,4 @@ const page = () => {
   )
 }
 
-export default page
+export default PortalPage

@@ -11,7 +11,6 @@ import Navbar from '@/components/Navbar';
 import Slider from '@/components/Slider';
 import ReaganIcon from '@/components/ReaganIcon';
 import Shadow from '@/components/Shadow';
-import userSession from '@/constants';
 
 function Header({session}) {
   return (

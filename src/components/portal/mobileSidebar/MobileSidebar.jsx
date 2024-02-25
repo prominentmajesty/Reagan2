@@ -8,9 +8,15 @@ import { RiParentLine } from "react-icons/ri";
 import { ImProfile } from "react-icons/im";
 import { images } from '@/constants';
 import { MdClose } from "react-icons/md";
+import { useRouter } from 'next/navigation'
 import styles from './mobileSidebar.module.css'
+import { usePathname } from "next/navigation";
 
 const MobileSidebar = ({open, close}) => {
+
+  const MyRouter = useRouter();
+
+  const pathName = usePathname();
   
   const exec = () => {
     close();
@@ -21,23 +27,23 @@ const MobileSidebar = ({open, close}) => {
       <span className={styles.x}><MdClose onClick={() => exec()} size={40} className={styles.x_icon}/></span>
       <div className={styles.center}>
         <Image src={images.profile} className={styles.profile_img}/>
-        <span className={styles.sidebar_contents}>
-        <PiStudent size={30}/> <b>Students</b>
+        <span onClick={() => MyRouter.push('/portal')} className={`${styles.sidebar_contents} ${pathName === '/portal' && styles.active}`}>
+          <PiStudent size={30}/> <b>Students</b>
         </span> 
-        <span className={styles.sidebar_contents}>
-        <RiParentLine size={30}/> <b>Parents</b>
+        <span onClick={() => MyRouter.push('/parents')} className={`${styles.sidebar_contents} ${pathName === '/parents' && styles.active}`}>
+          <RiParentLine size={30}/> <b>Parents</b>
         </span> 
-        <span className={styles.sidebar_contents}>
-        <BsCloudUpload size={30}/> <b>Upload Results</b>
+        <span onClick={() => MyRouter.push('/resultupload')} className={`${styles.sidebar_contents} ${pathName === '/resultupload' && styles.active}`}>
+          <BsCloudUpload size={30}/> <b>Upload Results</b>
         </span> 
-        <span className={styles.sidebar_contents}>
-        <TbCloudDownload size={30}/> <b>View Results</b>
+        <span onClick={() => MyRouter.push('/viewresult')} className={`${styles.sidebar_contents} ${pathName === '/viewresult' && styles.active}`}>
+          <TbCloudDownload size={30}/> <b>View Results</b>
         </span> 
-        <span className={styles.sidebar_contents}>
-        <ImProfile size={30}/> <b>Profile</b>
+        <span onClick={() => MyRouter.push('/profile')} className={`${styles.sidebar_contents} ${pathName === '/profile' && styles.active}`}>
+          <ImProfile size={30}/> <b>Profile</b>
         </span>
         <span className={styles.sidebar_contents}>
-        <TbLogout size={30}/> <b>Logout</b>
+          <TbLogout size={30}/> <b>Logout</b>
         </span>
       </div>
     </div>

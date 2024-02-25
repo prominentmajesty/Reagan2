@@ -1,11 +1,11 @@
 'use client';
 import React, {useState} from 'react';
-import styles from './portal.module.css';
-import Sidebar from './sidebar/Sidebar';
-import MobileSidebar from './mobileSidebar/MobileSidebar';
-import HandBurger from './handburger/Handburger';
+import Sidebar from '../sidebar/Sidebar';
+import HandBurger from '../handburger/Handburger';
+import MobileSidebar from '../mobileSidebar/MobileSidebar';
+import styles from './viewResult.module.css';
 
-const Portal = () => {
+const ViewResult = () => {
 
   const [open, setOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const Portal = () => {
 
   return (
     <>
-      <div className={styles.portal}>
+      <div className={styles.viewResult}>
         <Sidebar/>
         <div className={styles.right}>
           <HandBurger open={open} handleClicked={handleClicked}/>
@@ -31,4 +31,4 @@ const Portal = () => {
   )
 }
 
-export default Portal
+export default ViewResult;
