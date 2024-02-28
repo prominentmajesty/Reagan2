@@ -1,11 +1,15 @@
 import React from 'react';
 import styles from './viewresult.module.css';
 import ViewResult from '@/components/portal/viewResult/ViewResult';
+import { auth } from '@/lib/auth';
 
-const ViewResultPage = () => {
+const ViewResultPage = async () => {
+
+  const session = await auth();
+
   return (
     <div>
-      <ViewResult/>
+      <ViewResult session={session}/>
     </div>
   )
 }

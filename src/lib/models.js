@@ -14,10 +14,6 @@ const userSchema = new mongoose.Schema(
             type : String,
         },
 
-        class : {
-            type : String,
-        },
-
         img : {
             type : String,
         },

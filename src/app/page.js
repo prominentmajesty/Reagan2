@@ -1,6 +1,3 @@
-import styles from "./page.module.css";
-import Image from 'next/image';
-
 //Liberary Import
 import Header from "@/components/header_and_footer/header/Header";
 import Home from "@/components/home/Home";

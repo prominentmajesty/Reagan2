@@ -47,6 +47,15 @@
     }
 }
 
+@media (min-width : 1014px) {
+    .appear{
+        display: none;
+    }
+    .disappear {
+        display: none;
+    }
+}
+
 .center{
     width: 100%;
     display : flex;

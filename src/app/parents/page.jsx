@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './parents.module.css';
 import Parents from '@/components/portal/parents/Parents';
+import { auth } from '@/lib/auth';
 
-const ParentPage = () => {
+const ParentPage = async() => {
+  const session = await auth();
   return (
     <div>
-      <Parents />
+      <Parents  session={session}/>
     </div>
   )
 }

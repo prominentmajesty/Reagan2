@@ -9,11 +9,11 @@ const LoginForm = () => {
   const [state, formAction] = useFormState(login, undefined);
 
   return (
-    <form className={styles.form} action=''>
+    <form className={styles.form} action={formAction}>
 
       <div className="form-email">
         <label htmlFor='email'>Email</label>
-        <input id="email" type="text" className={styles.input} placeholder="username" name="username" />
+        <input id="email" type="text" className={styles.input} placeholder="Email" name="username" />
       </div>
       
       <div className="form-password">
@@ -22,6 +22,8 @@ const LoginForm = () => {
       </div>
       
       <button className={styles.loginBTN}>Login</button>
+      
+      <div className={styles.loginError}>{state?.error}</div>
       
       <div className={styles.last}>
         <Link href="/register" className={styles.loginLink}>

@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { BsCloudUpload } from "react-icons/bs";
-import { TbCloudDownload, TbLogout } from "react-icons/tb";
+import { TbCloudDownload } from "react-icons/tb";
 import { PiStudent } from "react-icons/pi";
 import { RiParentLine } from "react-icons/ri";
 import { ImProfile } from "react-icons/im";
@@ -10,6 +10,7 @@ import { images } from '@/constants';
 import { useRouter } from 'next/navigation'
 import styles from './sidebar.module.css';
 import { usePathname } from "next/navigation";
+import Logout from './logout/Logout';
 
 const Sidebar = () => {
 
@@ -34,9 +35,7 @@ const Sidebar = () => {
       <span onClick={() => MyRouter.push('/profile')} className={`${styles.sidebar_contents} ${pathName === '/profile' && styles.active}`}>
         <ImProfile size={30}/> <b>Profile</b>
       </span>
-      <span className={styles.sidebar_contents}>
-      < TbLogout size={30}/> <b>Logout</b>
-      </span>
+      <Logout />
     </div>
   )
 }

@@ -1,0 +1,15 @@
+.unqualified{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h4{
+    line-height:2.3rem;
+}
+
+.bold{
+    font-size: xx-large;
+}

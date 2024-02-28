@@ -33,3 +33,7 @@
     flex-direction: column;
     gap: 1.1rem;
 }
+
+.loginError{
+    color: rgb(248, 43, 43);
+}

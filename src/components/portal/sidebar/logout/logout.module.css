@@ -1,0 +1,15 @@
+.sidebar_contents{
+    display: flex;
+    gap: 20px;
+    color: white;
+}
+
+.sidebar_contents :hover{
+    cursor: pointer;
+}
+
+.logout_btn{
+    border: none;
+    background-color: rgb(61, 74, 100);
+    color: white;
+}

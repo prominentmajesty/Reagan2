@@ -25,3 +25,17 @@
     flex-direction: column;
     gap: 1.1rem;
 }
+
+.registerLink{
+    text-align: center;
+}
+
+.last {
+    width: 100%;
+    display:  flex;
+    justify-content: center;
+}
+
+.registerError{
+    color: rgb(248, 43, 43);
+}

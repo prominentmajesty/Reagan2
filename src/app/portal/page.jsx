@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import styles from './portal.module.css'
 import Portal from '@/components/portal/Portal';
+import { auth } from '@/lib/auth';
 
-const PortalPage = () => {
+const PortalPage = async () => {
+
+  const session = await auth();
   return (
     <>
-      <Portal/>
+      <Portal session={session}/>
     </>
   )
 }
