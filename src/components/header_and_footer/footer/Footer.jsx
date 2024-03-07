@@ -6,6 +6,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 //Liberary Import
 import {images} from '@/constants';
+import Bottom from './Bottom';
 
 function Footer() {
   return (
@@ -51,9 +52,7 @@ function Footer() {
           <span className="contact">08034672651</span>
         </div>
       </div>
-      <div className='copyright'>
-        Copyright &copy; 2010 - {new Date().getFullYear()} Supreme Reagan High School - All Right Reserved
-      </div>
+      <Bottom/>
     </div>
   )
 }

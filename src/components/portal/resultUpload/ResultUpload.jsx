@@ -8,10 +8,16 @@ import Unqualified from '../unqualified/Unqualified';
 import SuspenseWork from '../suspense/Suspense';
 import { useRouter } from 'next/navigation';
 
-const ResultUpload = ({session}) => {
+const ResultUpload = ({ regNo, session }) => {
     const [open, setOpen] = useState(false);
     const [state, setState] = useState(null);
     const router = useRouter();
+
+    const arr = regNo.split('');
+    arr.splice(3, 0, "/");
+    arr.splice(8, 0, "/");
+    const str = arr.join('');
+    console.log(str);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -45,6 +51,9 @@ const ResultUpload = ({session}) => {
                   <Sidebar/>
                   <div className={styles.right}>
                     <HandBurger open={open} handleClicked={handleClicked}/>
+                    <div className={styles.right_color}>
+                      <span>jfdbfdfjopkm hdhjdfjkfjkdf fdhjdfjdfjkdf fdjkdfkjfdjkdf fjkdfjkdfjkdfjkdf fjkfdjkdfjkdfkjldf fdkjfdjkdfkjdfkjdf iorhirhorir kfhofdhiofniof</span>
+                    </div>
                   </div>
                 </div>
                 {/* For mobile View */}

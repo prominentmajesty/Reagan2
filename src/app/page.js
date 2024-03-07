@@ -7,6 +7,8 @@ import Ratings from "@/components/ratings/Ratings";
 import Trust from "@/components/trust/Trust";
 import Footer from "@/components/header_and_footer/footer/Footer";
 import { auth } from "@/lib/auth";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = async () => {
 
@@ -14,6 +16,7 @@ const HomePage = async () => {
 
   return (
     <>
+      <ToastContainer />
       <Header session={session}/>
       <Home />
       <Offer />

@@ -2,17 +2,22 @@ import mongoose from "mongoose";
 
 const studentSchema  = new mongoose.Schema({
 
-    firstName : {
+    regNo : {
         type : String,
         required : true
     },
 
-    otherNames : {
+    firstname : {
         type : String,
         required : true
     },
 
-    Age : {
+    othernames : {
+        type : String,
+        required : true
+    },
+
+    age : {
         type : String,
         required : true,
     },
@@ -22,22 +27,27 @@ const studentSchema  = new mongoose.Schema({
         required : true,
     },
 
+    parentphone : {
+        type : String,
+        required : true
+    },
+
     image : {
         type : String,
     },
 
     parent : {
-        type : Schema.Types.ObjectId,
+        type : mongoose.Schema.Types.ObjectId,
         ref : 'Parents'
     },
 
     primary : {
-        type : Schema.Types.ObjectId,
+        type : mongoose.Schema.Types.ObjectId,
         ref : 'Primary'
     },
 
     secondary : {
-        type : Schema.Types.ObjectId,
+        type : mongoose.Schema.Types.ObjectId,
         ref : 'Secondary'
     }
 
