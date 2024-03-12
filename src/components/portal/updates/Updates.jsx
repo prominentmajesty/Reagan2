@@ -1,14 +1,14 @@
 'use client';
 import React, {useState, useEffect} from 'react';
-import styles from './parents.module.css';
 import Sidebar from '../sidebar/Sidebar';
 import HandBurger from '../handburger/Handburger';
 import MobileSidebar from '../mobileSidebar/MobileSidebar';
 import SuspenseWork from '../suspense/Suspense';
 import Unqualified from '../unqualified/Unqualified';
 import { useRouter } from "next/navigation";
+import styles from './updates.module.css';
 
-const Parents = ({session}) => {
+const Updates = ({session}) => {
     const [open, setOpen] = useState(false);
     const [state, setState] = useState(null)
     const router = useRouter();
@@ -41,12 +41,12 @@ const Parents = ({session}) => {
         {
           state[0].isTeacher ? 
             <>
-              <div className={styles.parents}>
+              <div className={styles.updates}>
                 <Sidebar/>
                 <div className={styles.right}>
                   <HandBurger open={open} handleClicked={handleClicked}/>
                   <div className={styles.right_color}>
-                    <span>jfdbfdfjopkm hdhjdfjkfjkdf fdhjdfjdfjkdf fdjkdfkjfdjkdf fjkdfjkdfjkdfjkdf fjkfdjkdfjkdfkjldf fdkjfdjkdfkjdfkjdf iorhirhorir kfhofdhiofniof</span>
+                    <span>jfd64bfdfjopkm hdhjdfjkfjkdf fdhjdfjdfjkdf fdjkdfkjfdjkdf fjkdfjkdfjkdfjkdf fjkfdjkdfjkdfkjldf fdkjfdjkdfkjdfkjdf iorhirhorir kfhofdhiofniof</span>
                   </div>
                 </div>
               </div>
@@ -62,4 +62,4 @@ const Parents = ({session}) => {
     : <SuspenseWork />
   )
 }
-export default Parents;
+export default Updates;;

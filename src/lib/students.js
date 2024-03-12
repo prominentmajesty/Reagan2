@@ -27,13 +27,13 @@ const studentSchema  = new mongoose.Schema({
         required : true,
     },
 
+    image : {
+        type : String,
+    },
+
     parentphone : {
         type : String,
         required : true
-    },
-
-    image : {
-        type : String,
     },
 
     parent : {
@@ -41,15 +41,10 @@ const studentSchema  = new mongoose.Schema({
         ref : 'Parents'
     },
 
-    primary : {
+    reasults : {
         type : mongoose.Schema.Types.ObjectId,
-        ref : 'Primary'
+        ref : 'Results'
     },
-
-    secondary : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'Secondary'
-    }
 
 },
     {timestamps : true}

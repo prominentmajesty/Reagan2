@@ -5,7 +5,9 @@ import { BsCloudUpload } from "react-icons/bs";
 import { TbCloudDownload } from "react-icons/tb";
 import { PiStudent } from "react-icons/pi";
 import { RiParentLine } from "react-icons/ri";
+import { GiEgyptianProfile } from "react-icons/gi";
 import { ImProfile } from "react-icons/im";
+import { IoHomeOutline } from "react-icons/io5";
 import { images } from '@/constants';
 import { MdClose } from "react-icons/md";
 import { useRouter } from 'next/navigation'
@@ -29,19 +31,22 @@ const MobileSidebar = ({open, close}) => {
       <div className={styles.center}>
         <Image src={images.profile} className={styles.profile_img}/>
         <span onClick={() => MyRouter.push('/portal')} className={`${styles.sidebar_contents} ${pathName === '/portal' && styles.active}`}>
-          <PiStudent size={30}/> <b>Students</b>
+          <PiStudent size={30}/> <b>Upload Students</b>
         </span> 
         <span onClick={() => MyRouter.push('/parents')} className={`${styles.sidebar_contents} ${pathName === '/parents' && styles.active}`}>
-          <RiParentLine size={30}/> <b>Parents</b>
+          <RiParentLine size={30}/> <b>View Parents</b>
         </span> 
-        <span onClick={() => MyRouter.push('/resultupload')} className={`${styles.sidebar_contents} ${pathName === '/resultupload' && styles.active}`}>
-          <BsCloudUpload size={30}/> <b>Upload Results</b>
+        <span onClick={() => MyRouter.push('/updates')} className={`${styles.sidebar_contents} ${pathName === '/updates' && styles.active}`}>
+          <BsCloudUpload size={30}/> <b>View Updates</b>
         </span> 
         <span onClick={() => MyRouter.push('/viewresult')} className={`${styles.sidebar_contents} ${pathName === '/viewresult' && styles.active}`}>
           <TbCloudDownload size={30}/> <b>View Results</b>
         </span> 
         <span onClick={() => MyRouter.push('/profile')} className={`${styles.sidebar_contents} ${pathName === '/profile' && styles.active}`}>
-          <ImProfile size={30}/> <b>Profile</b>
+          <GiEgyptianProfile size={30}/> <b>Change Profile</b>
+        </span>
+        <span onClick={() => MyRouter.push('/')} className={styles.sidebar_contents}>
+          <IoHomeOutline size={30}/> <b> Back to Home</b>
         </span>
         <Logout />
       </div>

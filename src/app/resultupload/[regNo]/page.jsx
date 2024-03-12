@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './regNo.module.css';
 import { auth } from '@/lib/auth';
-import ResultUpload from '@/components/portal/resultUpload/ResultUpload';
+import { ResultUpload } from '@/components/portal/resultUpload/ResultUpload';
 
 const ResultUploadPage = async ({params}) => {
 

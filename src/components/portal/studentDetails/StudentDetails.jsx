@@ -25,10 +25,10 @@ const StudentDetails = ({ students }) => {
         <table class={`table caption-top table-striped table-hover ${styles.table_custom}`}>
           <thead>
             <tr>
-              <th>index</th>
+              <th>Index</th>
               <th className={styles.space}>Image</th>
               <th className={styles.space}>RegNo</th>
-              <th className={styles.space}>FirstNames</th>
+              <th className={styles.space}>FirstName</th>
               <th className={styles.space}>OtherNames</th>
               <th className={styles.space}>Age</th>
               <th className={styles.space}>Address</th>
@@ -40,7 +40,7 @@ const StudentDetails = ({ students }) => {
           </thead>
           <tbody>
             {students && students.map((student, index) => (
-
+         
               <tr key={index}>
                 <th>{index + 1}</th>
                 <th className={styles.space}>{student.image? <Image src={student.image} className={styles.profile} alt='avater'/> : <Image src={images.profile} className={styles.profile} alt='avater'/>}</th>

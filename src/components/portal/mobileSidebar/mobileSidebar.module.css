@@ -31,8 +31,8 @@
         background-color: rgb(61, 74, 100);
         opacity: 0;
         position: absolute;
-        z-index: 9;
-        transform: translateY(-100vh);
+        z-index: 0;
+        /* transform: translateY(-100vh); */
     }
     .appear{
         display : flex;
@@ -80,5 +80,9 @@
     background-color: rgb(180, 174, 174);
     padding: 0.7rem;
     border-radius: 15px;
+}
+
+.udates{
+    color: white !important;
 }
 
