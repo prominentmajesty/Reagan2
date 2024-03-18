@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import {User} from './models';
 import { Students } from "./students";
+import { Results } from "./results";
 import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from 'bcryptjs';
@@ -103,6 +104,15 @@ export const studentDetails = async (prevState, formData) => {
     });
   
     await doc.save();
+
+    const result  = new Results({
+      firstname,
+      othernames,
+      regNo,
+    })
+
+    await result.save();
+
     return {success : true};  
 
   }catch(err){

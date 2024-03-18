@@ -10,7 +10,7 @@ const resultsSchema = new mongoose.Schema(
             type : String
         },
 
-        RegNo : {
+        regNo : {
             type : String
         },
 
@@ -372,7 +372,7 @@ const resultsSchema = new mongoose.Schema(
         secondary : {
 
             section : {
-                type : Stri
+                type : String
             },
             
             studentClass : {

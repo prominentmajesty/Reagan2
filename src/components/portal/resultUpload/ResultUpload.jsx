@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './resultUpload.module.css';
 import Sidebar from '../sidebar/Sidebar';
 import HandBurger from '../handburger/Handburger';
@@ -8,16 +8,54 @@ import Unqualified from '../unqualified/Unqualified';
 import SuspenseWork from '../suspense/Suspense';
 import { useRouter } from 'next/navigation';
 
-export const ResultUpload = ({ regNo, session }) => {
+export const ResultUpload = ({ reg, session }) => {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState(null);
   const [phaze, setPhaze] = useState(false);
-  const [student, setStudent] = useState('');
+  const [student, setStudent] = useState(null);
+  const [uploaded, setUploaded] = useState(false)
+
+  const ref = useRef(null);
+
+  const [data, setData] = useState({
+    firstname : '',
+    othernames : '',
+    regNo : '',
+    section : '',
+    elementry : '', 
+    assesment : '', 
+    term : '',
+    date : ''
+  });
+
+  const {
+    firstname,
+    othernames,
+    regNo,
+    section,
+    elementry,
+    assesment,
+    term,
+    date
+  } = data
+
+  const handleChanged = e => {
+    if(e.target.value === 'secondary'){
+      setPhaze(true);
+      setData({...data, [e.target.name] : e.target.value})
+    }else if(e.target.value === 'primary'){
+      setPhaze(false);
+      setData({...data, [e.target.name] : e.target.value})
+    }else{
+      setData({...data, [e.target.name] : e.target.value})
+    }
+    
+  };
 
   useEffect(() => {
     try{
       const fetchstudent = async() => {
-        const response = await fetch(`/api/user/result/${regNo}`);
+        const response = await fetch(`/api/user/result/${reg}`);
         const student = await response.json();
         setStudent(student);
       }
@@ -53,15 +91,6 @@ export const ResultUpload = ({ regNo, session }) => {
     setInputList(list);
   };
 
-  const handleChanged = e => {
-    e.target.value === 'secondary' ? setPhaze(true) : setPhaze(false);
-  };
-
-  const arr = regNo.split('');
-  arr.splice(3, 0, "/");
-  arr.splice(8, 0, "/");
-  const str = arr.join('');
-
   useEffect(() => {
     const fetchDetails = async () => {
       const response = await fetch(`/api/user/${session?.user.email}/details`);
@@ -84,8 +113,62 @@ export const ResultUpload = ({ regNo, session }) => {
     setOpen(true);
   };
 
-  const handleSubmit = e => {
-    console.log(inputList);
+  const handleSubmit = async e => {
+
+   try{
+
+      var obj = {};
+
+      if(student){
+        const firstname = student?.firstname;
+        const othernames = student?.othernames;
+        const regNo = student?.regNo;
+
+        obj.details = {...data, firstname, othernames, regNo}
+
+        obj.scores = inputList
+        console.log(obj);
+        
+        const res = await fetch("/api/user/uploadresult",{
+          method : "POSt",
+          body : JSON.stringify({
+            obj
+          })
+        });
+        console.log(res)
+        if(res.ok){
+          setUploaded(true)
+          setStudent(null);
+          ref.current.value = null;
+          setTimeout(() => {
+            setUploaded(false);
+          }, 3000);
+        }
+
+      }else {
+        obj.details = data;
+        obj.scores = inputList;
+        console.log(obj)
+        const res = await fetch("/api/user/uploadresult",{
+          method : "POSt",
+          body : JSON.stringify({
+            obj
+          })
+        });
+
+        if(res.ok){
+          setUploaded(true)
+          setStudent(null);
+          ref.current.value = null;
+          setTimeout(() => {
+            setUploaded(false);
+          }, 3000);
+        }
+      }
+
+    }catch(err){
+      console.log(err);
+    }
   }
 
   return (
@@ -102,19 +185,19 @@ export const ResultUpload = ({ regNo, session }) => {
                   <form className={`row g-4 needs-validation ${styles.form}`} novalidate>
                     <div className="col-md-4">
                       <label for="validationCustom01" className="form-label">First name</label>
-                      <input type="text" className={`form-control ${styles.field}`} id="validationCustom01" required />
+                      <input type="text" ref={ref} name='firstname' onChange={handleChanged} value={student? student.firstname : firstname} className={`form-control ${styles.field}`} id="validationCustom01" required />
                     </div>
                     <div className="col-md-4">
                       <label for="validationCustom02" className="form-label">Other names</label>
-                      <input type="text" className={`form-control ${styles.field}`} id="validationCustom02" required />
+                      <input type="text" ref={ref} name='othernames' onChange={handleChanged} value={student? student.othernames : othernames} className={`form-control ${styles.field}`} id="validationCustom02" required />
                     </div>
                     <div className="col-md-4">
                       <label for="validationCustom03" className="form-label">Registration number </label>
-                      <input type="text" className={`form-control ${styles.field}`} id="validationCustom03" required />
+                      <input type="text" ref={ref} name='regNo' onChange={handleChanged} value={student? student.regNo : regNo} className={`form-control ${styles.field}`} id="validationCustom03" required />
                     </div>
                     <div className="col-md-6">
                       <label for="validationCustom04" className="form-label">Select section</label>
-                      <select onChange={handleChanged} className={`form-select ${styles.field}`} id="validationCustom04" required>
+                      <select name='section' value={section} onChange={handleChanged} className={`form-select ${styles.field}`} id="validationCustom04" required>
                         <option selected disabled value=""></option>
                         <option value='secondary'>secondary</option>
                         <option value='primary'>primary</option>
@@ -124,7 +207,7 @@ export const ResultUpload = ({ regNo, session }) => {
                       {!phaze ?
                         <div className={styles.secondary}>
                           <label for="validationCustom05" className="form-label">Select class</label>
-                          <select className={`form-select ${styles.field}`} id="validationCustom05" required>
+                          <select name='elementry' onChange={handleChanged} value={elementry} className={`form-select ${styles.field}`} id="validationCustom05" required>
                             <option selected disabled value="">class...</option>
                             <option value='activity1'>activity1</option>
                             <option value='activity2'>activity2</option>
@@ -139,7 +222,7 @@ export const ResultUpload = ({ regNo, session }) => {
                         :
                         <div className={styles.primary}>
                           <label for="validationCustom06" className="form-label">Select class</label>
-                          <select className={`form-select ${styles.field}`} id="validationCustom06" required>
+                          <select name='elementry' onChange={handleChanged} value={elementry} className={`form-select ${styles.field}`} id="validationCustom06" required>
                             <option selected disabled value="">class...</option>
                             <option value='JSS1'>JSS1</option>
                             <option value='JSS2'>JSS2</option>
@@ -152,16 +235,16 @@ export const ResultUpload = ({ regNo, session }) => {
                     </div>
                     <div className="col-md-6">
                       <label for="validationCustom00" className="form-label">Assesment type</label>
-                      <select className={`form-select ${styles.field}`} id="validationCustom00" required>
+                      <select name='assesment' onChange={handleChanged} value={assesment} className={`form-select ${styles.field}`} id="validationCustom00" required>
                         <option selected disabled value=""></option>
-                        <option value='assesment1'>First Test</option>
-                        <option value='assesment2'>Second Test</option>
-                        <option value='assesment3'>Exam</option>
+                        <option value='firstTest'>First Test</option>
+                        <option value='secondTest'>Second Test</option>
+                        <option value='exam'>Exam</option>
                       </select>
                     </div>
                     <div className="col-md-4">
                       <label for="validationCustom07" className="form-label">Academic Term</label>
-                      <select className={`form-select ${styles.field}`} id="validationCustom07" required>
+                      <select name='term' onChange={handleChanged} value={term} className={`form-select ${styles.field}`} id="validationCustom07" required>
                         <option selected disabled value=""></option>
                         <option value='Firstterm'>Firstterm</option>
                         <option value='Secondterm'>Secondterm</option>
@@ -170,9 +253,10 @@ export const ResultUpload = ({ regNo, session }) => {
                     </div>
                     <div className="col-md-4">
                       <label for="validationCustom08" className="form-label">Date</label>
-                      <input type="date" className={`form-control ${styles.field}`} id="validationCustom08" required />
+                      <input name='date' onChange={handleChanged} value={date} type="date" className={`form-control ${styles.field}`} id="validationCustom08" required />
                     </div>
                     <span className={styles.curses}>Respective subjects..</span>
+                    {uploaded ? <div className={`${styles.curses} ${styles.msg}`}>Result upload was successful..</div> : ''}
                     {inputList.map((item, i) => {
                       return (
                         <div key={i} className={`row ${styles.dynamic}`}>
@@ -182,7 +266,7 @@ export const ResultUpload = ({ regNo, session }) => {
                           </div>
                           <div className="col-md-6">
                             <label for="validationCustom010" className="form-label">Value</label>
-                            <input type="text" name='Value' value={item.Value} onChange={e => handleChange(e, i)} className={`form-control ${styles.field}`} id="validationCustom010" required />
+                            <input type="text" ref={ref} name='Value' value={item.Value} onChange={e => handleChange(e, i)} className={`form-control ${styles.field}`} id="validationCustom010" required />
                           </div>
                           <div className={styles.twobtn}>
                             {inputList.length !== 1 && <button onClick={() => { removeInput(i); }} className={`${styles.inputbtn} ${styles.minus}`} id="add-btn" type="button">-</button>}
@@ -207,3 +291,7 @@ export const ResultUpload = ({ regNo, session }) => {
       : <SuspenseWork />
   );
 };
+
+{/* <pre>
+  {JSON.stringify(inputList, null, 2)}
+</pre> */}

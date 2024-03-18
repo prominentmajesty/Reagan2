@@ -6,10 +6,10 @@ import { ResultUpload } from '@/components/portal/resultUpload/ResultUpload';
 const ResultUploadPage = async ({params}) => {
 
     const session = await auth();
-    const regNo = params.regNo;
+    const reg = params.regNo;
   return (
     <div>
-      <ResultUpload regNo={regNo} session={session}/>
+      <ResultUpload reg={reg} session={session}/>
     </div>
   )
 }
