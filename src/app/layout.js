@@ -19,4 +19,6 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+//Profile for Nigerian brewery Job Application
+//https://select.alldayhr.com/job/information-communication-manager/apply
 

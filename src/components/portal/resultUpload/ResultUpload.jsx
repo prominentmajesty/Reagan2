@@ -14,6 +14,7 @@ export const ResultUpload = ({ reg, session }) => {
   const [phaze, setPhaze] = useState(false);
   const [student, setStudent] = useState(null);
   const [uploaded, setUploaded] = useState(false)
+  const [failed, setFailed] = useState(false);
 
   const ref = useRef(null);
 
@@ -63,7 +64,7 @@ export const ResultUpload = ({ reg, session }) => {
     }catch(err){
       console.log(err);
     }
-  },[]);
+  },[]); 
 
   const router = useRouter();
 
@@ -114,7 +115,7 @@ export const ResultUpload = ({ reg, session }) => {
   };
 
   const handleSubmit = async e => {
-
+    
    try{
 
       var obj = {};
@@ -135,13 +136,19 @@ export const ResultUpload = ({ reg, session }) => {
             obj
           })
         });
-        console.log(res)
+        console.log('check res..');
+        console.log(res.status === 200)
         if(res.ok){
           setUploaded(true)
           setStudent(null);
           ref.current.value = null;
           setTimeout(() => {
             setUploaded(false);
+          }, 3000);
+        }else{
+          setFailed(true);
+          setTimeout(() => {
+            setFailed(false);
           }, 3000);
         }
 
@@ -156,12 +163,17 @@ export const ResultUpload = ({ reg, session }) => {
           })
         });
 
-        if(res.ok){
+        if(res.status === 200){
           setUploaded(true)
           setStudent(null);
           ref.current.value = null;
           setTimeout(() => {
             setUploaded(false);
+          }, 3000);
+        }else{
+          setFailed(true);
+          setTimeout(() => {
+            setFailed(false);
           }, 3000);
         }
       }
@@ -212,6 +224,9 @@ export const ResultUpload = ({ reg, session }) => {
                             <option value='activity1'>activity1</option>
                             <option value='activity2'>activity2</option>
                             <option value='activity3'>activity3</option>
+                            <option value='nursery1'>nursery1</option>
+                            <option value='nursery2'>nursery2</option>
+                            <option value='nursery3'>nursery3</option>
                             <option value='basic1'>basic1</option>
                             <option value='basic2'>basic2</option>
                             <option value='basic3'>basic3</option>
@@ -257,6 +272,7 @@ export const ResultUpload = ({ reg, session }) => {
                     </div>
                     <span className={styles.curses}>Respective subjects..</span>
                     {uploaded ? <div className={`${styles.curses} ${styles.msg}`}>Result upload was successful..</div> : ''}
+                    {failed ? <div className={`${styles.curses} ${styles.failed}`}>Error !! Failed to upload result</div> : ''}
                     {inputList.map((item, i) => {
                       return (
                         <div key={i} className={`row ${styles.dynamic}`}>

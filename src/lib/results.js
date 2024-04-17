@@ -156,6 +156,132 @@ const resultsSchema = new mongoose.Schema(
                         overall : []
                     }
                 },
+                nursery1 : {
+
+                    class : {
+                        type : String
+                    },
+
+                    Firstterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    },
+
+                    Secondterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    },
+
+                    Thirdterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    }
+                },
+                nursery2 : {
+
+                    class : {
+                        type : String
+                    },
+
+                    Firstterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    },
+
+                    Secondterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    },
+
+                    Thirdterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    }
+                },
+                nursery3 : {
+
+                    class : {
+                        type : String
+                    },
+
+                    Firstterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    },
+
+                    Secondterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    },
+
+                    Thirdterm : {
+
+                        term : {
+                            type : String,
+                        },
+
+                        firstTest : [],
+                        secondTest : [],
+                        exam : [],
+                        overall : []
+                    }
+                },
                 basic1 : {
 
                     class : {

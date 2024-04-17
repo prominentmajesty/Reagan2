@@ -107,7 +107,7 @@ export const studentDetails = async (prevState, formData) => {
 
     const result  = new Results({
       firstname,
-      othernames,
+      othernames, 
       regNo,
     })
 

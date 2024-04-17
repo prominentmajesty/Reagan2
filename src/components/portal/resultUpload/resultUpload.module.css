@@ -53,6 +53,16 @@
         font-size: larger;
     }
 
+    .failed{
+        background-color: rgb(255, 6, 6);
+        padding-left: 1.3rem;
+        padding-right: 1.3rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        border-radius: 5px;
+        font-size: larger;
+    }
+
     .curses{
         margin-left: 0.5rem;
     }
@@ -104,6 +114,13 @@
 
     .msg{
         background-color: rgb(3, 168, 58);
+        padding: 1.3rem;
+        border-radius: 5px;
+        font-size: larger;
+    }
+
+    .failed{
+        background-color: rgb(255, 6, 6);
         padding: 1.3rem;
         border-radius: 5px;
         font-size: larger;
