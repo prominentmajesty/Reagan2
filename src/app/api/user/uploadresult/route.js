@@ -97,7 +97,6 @@ export const POST = async(request, {params}) => {
                                    const setAverage = Math.floor(obj.totalScore/2);
                                    obj.average = setAverage; 
                                    obj.grade = '';
-                                   const setRemark = '';
                                    obj.remark = ''
                                    return obj;
                                 });
@@ -132,15 +131,15 @@ export const POST = async(request, {params}) => {
                                    var secondAssessment = secondTest.length === 0 ? 0 : secondTest[index].Value;
                                    var getFirstTest = parseInt(firstAssessment);
                                    var getSecondTest = parseInt(secondAssessment);
-                                   const getExam = parseInt(test.value);
+                                   var getExam = parseInt(test.Value);
                                    
-            
+                                    
                                    obj.totalScore = getFirstTest + getSecondTest + getExam;
                                    var setAverage = Math.floor(obj.totalScore/3);
                                    obj.average = setAverage; 
-                                   var setGrade = obj.average < 40 ? 'F' : obj.average > 39 && obj.average < 46 ? 'E' : obj.average > 45 && obj.average < 50 ? 'D' : obj.average > 49 && obj.average < 56 ? 'C' : obj.average > 55 && obj.average < 61 ? 'C+' : obj.average > 60 && obj.average < 71 ? 'C++' : obj.average > 70 && obj.average < 81 ? 'B' : obj.average > 80 && obj.average < 91 ? 'B+' : obj.average > 90 && obj.average < 96 ? 'A': obj.average > 95 && obj.average < 101 ? 'A+' : 'Score more than hundred is not supported';
+                                   var setGrade = obj.average < 40 ? 'F' : obj.average > 39 && obj.average < 50 ? 'E' : obj.average > 49 && obj.average < 56 ? 'D' : obj.average > 55 && obj.average < 61 ? 'C' : obj.average > 60 && obj.average < 66 ? 'C+' : obj.average > 65 && obj.average < 76 ? 'C++' : obj.average > 75 && obj.average < 81 ? 'B' : obj.average > 80 && obj.average < 91 ? 'B+' : obj.average > 90 && obj.average < 96 ? 'A': obj.average > 95 && obj.average < 101 ? 'A+' : 'Score more than hundred is not supported';
                                    obj.grade = setGrade;
-                                   var setRemark = obj.average < 40 ? ' Failed ' : obj.average > 39 && obj.average < 46 ? 'Below Average' : obj.average > 45 && obj.average < 50 ? 'Fair' : obj.average > 49 && obj.average < 56 ? 'Average' : obj.average > 55 && obj.average < 61 ? 'Above Average' : obj.average > 61 && obj.average < 71 ? 'Good' : obj.average > 70 && obj.average < 81 ? 'Good Enough' : obj.average > 80 && obj.average < 91 ? 'Very Good' : obj.average > 90 && obj.average < 96 ? 'Excelent' : obj.average > 95 && obj.average < 101 ? 'Distinction' : 'Score more than hundred is not supported';
+                                   var setRemark = obj.average < 40 ? ' Failed ' : obj.average > 39 && obj.average < 46 ? 'Below Average' : obj.average > 45 && obj.average < 50 ? 'Fair' : obj.average > 49 && obj.average < 56 ? 'Average' : obj.average > 55 && obj.average < 61 ? 'Above Average' : obj.average > 60 && obj.average < 71 ? 'Good' : obj.average > 70 && obj.average < 81 ? 'Good Enough' : obj.average > 80 && obj.average < 91 ? 'Very Good' : obj.average > 90 && obj.average < 96 ? 'Excelent' : obj.average > 95 && obj.average < 101 ? 'Distinction' : 'Score more than hundred is not supported';
                                    obj.remark = setRemark;
                                    return obj;
                                 });
