@@ -1,0 +1,38 @@
+.right_color{
+    color: white;
+}
+
+.caption{
+    font-weight: bolder;
+    font-size :xx-large;
+    text-align: center;
+}
+
+.field {
+    background-color: rgb(28, 28, 54);
+    border-color: gray;
+    color: white
+}
+
+@media (min-width : 1013px) {
+    .right_color{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow-y: scroll;
+        padding : 1rem;
+
+    }
+}
+
+@media (max-width : 1013px) {
+    .right_color{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow-y: scroll;
+        padding : 1rem;
+    }
+}

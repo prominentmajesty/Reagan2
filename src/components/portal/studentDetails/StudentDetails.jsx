@@ -54,7 +54,7 @@ const StudentDetails = ({ students }) => {
                 <th className={`${styles.space} ${styles.click}`}><IoCloudUploadOutline onClick={() => {exec(student.regNo)}} size={25}/></th>
                 <th className={`${styles.space} ${styles.click}`}><HiOutlineViewfinderCircle size={25}/></th>
               </tr>
-
+              
             ))}
           </tbody>
         </table>

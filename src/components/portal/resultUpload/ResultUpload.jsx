@@ -13,7 +13,7 @@ export const ResultUpload = ({ reg, session }) => {
   const [state, setState] = useState(null);
   const [phaze, setPhaze] = useState(false);
   const [student, setStudent] = useState(null);
-  const [uploaded, setUploaded] = useState(false)
+  const [uploaded, setUploaded] = useState(false);
   const [failed, setFailed] = useState(false);
 
   const ref = useRef(null);
@@ -114,7 +114,7 @@ export const ResultUpload = ({ reg, session }) => {
     setOpen(true);
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async e => { 
     
    try{
 
@@ -136,7 +136,6 @@ export const ResultUpload = ({ reg, session }) => {
             obj
           })
         });
-        console.log('check res..');
         console.log(res.status === 200)
         if(res.ok){
           setUploaded(true)
@@ -145,6 +144,7 @@ export const ResultUpload = ({ reg, session }) => {
           setTimeout(() => {
             setUploaded(false);
           }, 3000);
+
         }else{
           setFailed(true);
           setTimeout(() => {
@@ -155,17 +155,15 @@ export const ResultUpload = ({ reg, session }) => {
       }else {
         obj.details = data;
         obj.scores = inputList;
-        console.log(obj)
         const res = await fetch("/api/user/uploadresult",{
           method : "POSt",
           body : JSON.stringify({
             obj
           })
         });
-
         if(res.status === 200){
-          setUploaded(true)
           setStudent(null);
+          setUploaded(true)
           ref.current.value = null;
           setTimeout(() => {
             setUploaded(false);
