@@ -28,13 +28,17 @@ const ViewResult = ({session}) => {
   } 
 
   const handleSearch = async(arr) => {
-    var arr = arr.split("");
-    arr.splice(3, 1);
-    arr.splice(7, 1);
-    const regNo = arr.join('');
-    const data = await fetch(`/api/user/getresult/${regNo}`);
-    const res = await data.json();
-    setResult(res);
+    try {
+      var arr = arr.split("");
+      arr.splice(3, 1);
+      arr.splice(7, 1);
+      const regNo = arr.join('');
+      const data = await fetch(`/api/user/getresult/${regNo}`);
+      const res = await data.json();
+      setResult(res);
+    }catch(err){
+      console.log(err);
+    }
   }
 
   const router = useRouter();
@@ -71,7 +75,7 @@ const ViewResult = ({session}) => {
             <input type="text" name='search' value={search} onChange={handleChange} class="form-control" placeholder="Enter Registration Number.." aria-label="Enter Registration Number.." aria-describedby="button-addon2" />
             <button class="btn btn-outline-secondary" onClick={() => {handleSearch(search)}} type="button" id="button-addon2">Search..</button>
           </div>
-        <Result result = {result}/>
+        <Result studentresult = {result}/>
         </div>
       </div>
       {/* For mobile View */}
