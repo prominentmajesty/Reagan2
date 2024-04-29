@@ -1,5 +1,6 @@
 'use client';
-import React, {useState, useEffect} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
+import { useReactToPrint } from "react-to-print";
 import styles from './Result.module.css';
 
 const Result = ({studentresult}) => {
@@ -8,15 +9,18 @@ const Result = ({studentresult}) => {
   const [phaze, setPhaze] = useState(false);
   const [result, setResult] = useState(null);
 
+  const dataToPrintRef = useRef();
+    const handlePrint = useReactToPrint({
+      content: () => dataToPrintRef.current
+    });
+
   const [data, setData] = useState({
     firstname : '',
     othernames : '',
     regNo : '',
     section : '',
     elementry : '', 
-    assesment : '', 
     term : '',
-    date : ''
   });
 
   console.log(data);
@@ -27,10 +31,24 @@ const Result = ({studentresult}) => {
     regNo,
     section,
     elementry,
-    assesment,
     term,
-    date
   } = data
+
+  const checkAssesment = () => {
+    try{
+      return result? result[data.section].studentClass[data.elementry][data.term].assesment : ''
+    }catch(err) {
+      console.log(err);
+    }
+  }
+
+  const checkDate = () => {
+    try{
+      return result? result[data.section].studentClass[data.elementry][data.term].date : ''
+    }catch(err) {
+      console.log(err);
+    }
+  }
 
   const display =  e => {
     
@@ -39,8 +57,7 @@ const Result = ({studentresult}) => {
         data.section && data.elementry && data.term ? 
           <div className={`${styles.table_holder}`}>
             {console.log(result[data.section].studentClass[data.elementry][data.term].overall)}
-              <table class="table caption-top">
-                <caption>Results</caption>
+              <table className={`table caption-top ${styles.border_round}`}>
                 <thead>
                   <tr>
                     <th scope="col">Number</th>
@@ -103,39 +120,38 @@ const Result = ({studentresult}) => {
   };
 
   return (
-    <div className={styles.right_color}>
+    <div className={styles.right_color} ref={dataToPrintRef}>
       {result ? 
-        <span>
+        <span className={styles.add_margin}>
           <div className={styles.caption_div}>
-            <h4 className={styles.caption}>Year one First Semester Result..</h4>
+            <h4 className={styles.caption}>{data.section && data.elementry && data.term ? `${data.elementry} ${data.term} Result..` : 'Select Section, Class and Term for your Results to Appear..'}</h4>
           </div>
           <form className={`row g-4 needs-validation ${styles.form}`} novalidate>
             <div className="col-md-4">
-              <label for="validationCustom01" className="form-label">First name</label>
               <input type="text" name='firstname' onChange={handleChanged} value={result? result.firstname : firstname} className={`form-control ${styles.field}`} id="validationCustom01" required />
+              <label className={styles.label}>First name..</label>
             </div>
             <div className="col-md-4">
-              <label for="validationCustom02" className="form-label">Other names</label>
               <input type="text" name='othernames' onChange={handleChanged} value={result? result.othernames : othernames} className={`form-control ${styles.field}`} id="validationCustom02" required />
+              <label className={styles.label}>Other names..</label>
             </div>
             <div className="col-md-4">
-              <label for="validationCustom03" className="form-label">Registration number </label>
               <input type="text" name='regNo' onChange={handleChanged} value={result? result.regNo : regNo} className={`form-control ${styles.field}`} id="validationCustom03" required />
+              <label className={styles.label}>Registration number..</label>
             </div>
             <div className="col-md-6">
-              <label for="validationCustom04" className="form-label">Select section</label>
               <select name='section' value={section} onChange={handleChanged} className={`form-select ${styles.field}`} id="validationCustom04" required>
-                <option selected disabled value=""></option>
+                <option selected disabled value="">select section</option>
                 <option value='secondary'>secondary</option>
                 <option value='primary'>primary</option>
               </select>
+              <label className={styles.label}>Acedemic section..</label>
             </div>
             <div className="col-md-6">
               {!phaze ?
                 <div className={styles.secondary}>
-                  <label for="validationCustom05" className="form-label">Select class</label>
                   <select name='elementry' onChange={handleChanged} value={elementry} className={`form-select ${styles.field}`} id="validationCustom05" required>
-                    <option selected disabled value="">class...</option>
+                    <option selected disabled value="">Select Class..</option>
                     <option value='activity1'>activity1</option>
                     <option value='activity2'>activity2</option>
                     <option value='activity3'>activity3</option>
@@ -148,12 +164,12 @@ const Result = ({studentresult}) => {
                     <option value='basic4'>basic4</option>
                     <option value='basic5'>basic5</option>
                   </select>
+                  <label className={styles.label}>Student class..</label>
                 </div>
                 :
                 <div className={styles.primary}>
-                  <label for="validationCustom06" className="form-label">Select class</label>
                   <select name='elementry' onChange={handleChanged} value={elementry} className={`form-select ${styles.field}`} id="validationCustom06" required>
-                    <option selected disabled value="">class...</option>
+                    <option selected disabled value="">Select Class..</option>
                     <option value='JSS1'>JSS1</option>
                     <option value='JSS2'>JSS2</option>
                     <option value='JSS3'>JSS3</option>
@@ -161,31 +177,27 @@ const Result = ({studentresult}) => {
                     <option value='SS2'>SS2</option>
                     <option value='SS3'>SS3</option>
                   </select>
+                  <label className={styles.label}>Student class..</label>
                 </div>}
             </div>
             <div className="col-md-6">
-              <label for="validationCustom00" className="form-label">Assesment type</label>
-              <select name='assesment' onChange={handleChanged} value={assesment} className={`form-select ${styles.field}`} id="validationCustom00" required>
-                <option selected disabled value=""></option>
-                <option value='firstTest'>First Test</option>
-                <option value='secondTest'>Second Test</option>
-                <option value='exam'>Exam</option>
-              </select>
+              <input type="text" name='assesment' placeholder='Assesment..' value={checkAssesment()} className={`form-control ${styles.field} ${styles.placeholder}`} id="validationCustom00" required />
+              <label className={styles.label}>Assesment..</label>
             </div>
             <div className="col-md-4">
-              <label for="validationCustom07" className="form-label">Academic Term</label>
               <select name='term' onChange={handleChanged} value={term} className={`form-select ${styles.field}`} id="validationCustom07" required>
-                <option selected disabled value=""></option>
+                <option selected disabled value="">Select Term</option>
                 <option value='Firstterm'>Firstterm</option>
                 <option value='Secondterm'>Secondterm</option>
                 <option value='Thirdterm'>Thirdterm</option>
               </select>
+              <label className={styles.label}>Academic term..</label>
             </div>
             <div className="col-md-4">
-              <label for="validationCustom08" className="form-label">Date</label>
-              <input name='date' onChange={handleChanged} value={date} type="date" className={`form-control ${styles.field}`} id="validationCustom08" required />
+              <input type="text" placeholder='Date..' name='date' value={checkDate()} className={`form-control ${styles.field} ${styles.placeholder}`} id="validationCustom08" required />
+              <label className={styles.label}>Date..</label>
             </div>
-            <span className={styles.curses}>Respective Result..</span>
+            <span className={styles.curses} onClick={handlePrint}>Print Result..</span>
           </form>
           {display()}
         </span>

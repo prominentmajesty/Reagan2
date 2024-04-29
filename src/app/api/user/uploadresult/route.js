@@ -1,6 +1,5 @@
 import { connectToDb } from "@/lib/utils";
 import { Results } from "@/lib/results";
-import { Elsie } from "next/font/google";
 
 export const POST = async(request, {params}) => {
     const req = await request.json();
@@ -8,8 +7,9 @@ export const POST = async(request, {params}) => {
     const elementry = req.obj.details.elementry;
     const term = req.obj.details.term;
     const assesment = req.obj.details.assesment;
+    const date = req.obj.details.date
     const arr = req.obj.scores; //req.obj.details.firstname;
-    // console.log(req);
+    console.log(req.obj.details.date);
 
     arr.sort((a, b) => {
         const nameA = a.Label.toLowerCase();
@@ -43,6 +43,8 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.activity1.Firstterm.term = term;
+                        res.primary.studentClass.activity1.Firstterm.date = date;
+                        res.primary.studentClass.activity1.Firstterm.assesment = assesment;
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.activity1.Firstterm.firstTest = arr;
@@ -144,9 +146,13 @@ export const POST = async(request, {params}) => {
                         }else {
                             console.log('No assesment');
                         }
-                    }else if(term === 'Secondterm'){
+                    }else if(term === 'Secondterm'){ 
+                        res.primary.studentClass.activity1.Secondterm.term = term;
+                        res.primary.studentClass.activity1.Secondterm.date = date;
+                        res.primary.studentClass.activity1.Secondterm.assesment = assesment;
                         if(assesment === 'firstTest'){
 
+                            res.primary.studentClass.activity1.Secondterm.firstTest = arr;
                             res.primary.studentClass.activity1.Secondterm.firstTest = arr;
                             await res.save();
                             
@@ -248,6 +254,9 @@ export const POST = async(request, {params}) => {
                         }
 
                     }else if(term === 'Thirdterm'){
+                        res.primary.studentClass.activity1.Thirdterm.term = term;
+                        res.primary.studentClass.activity1.Thirdterm.date = date;
+                        res.primary.studentClass.activity1.Thirdterm.assesment = assesment;
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.activity1.Thirdterm.firstTest = arr;
@@ -360,6 +369,8 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.activity2.Firstterm.term = term;
+                        res.primary.studentClass.activity2.Firstterm.date = date;
+                        res.primary.studentClass.activity2.Firstterm.assesment = assesment;
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.activity2.Firstterm.firstTest = arr;
@@ -464,7 +475,9 @@ export const POST = async(request, {params}) => {
 
                     //Second Term Activity2
                     }else if(term === 'Secondterm'){
-
+                        res.primary.studentClass.activity2.Secondterm.term = term;
+                        res.primary.studentClass.activity2.Secondterm.date = date;
+                        res.primary.studentClass.activity2.Secondterm.assesment = assesment;
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.activity2.Secondterm.firstTest = arr;
@@ -570,6 +583,9 @@ export const POST = async(request, {params}) => {
                     //Third term Activity 2
                     }else if(term === 'Thirdterm'){
 
+                        res.primary.studentClass.activity2.Thirdterm.term = term;
+                        res.primary.studentClass.activity2.Thirdterm.date = date;
+                        res.primary.studentClass.activity2.Thirdterm.assesment = assesment
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.activity2.Thirdterm.firstTest = arr;
@@ -683,6 +699,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.activity3.Firstterm.term = term;
+                        res.primary.studentClass.activity3.Firstterm.date = date;
+                        res.primary.studentClass.activity3.Firstterm.assesment = assesment;
+                        
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.activity3.Firstterm.firstTest = arr;
@@ -787,6 +806,10 @@ export const POST = async(request, {params}) => {
                     //Second Term Activity 3
                     }else if(term === 'Secondterm'){
 
+                        res.primary.studentClass.activity3.Secondterm.term = term;
+                        res.primary.studentClass.activity3.Secondterm.date = date;
+                        res.primary.studentClass.activity3.Secondterm.assesment = assesment;
+                        
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.activity3.Secondterm.firstTest = arr;
@@ -892,6 +915,10 @@ export const POST = async(request, {params}) => {
 
                     //Third Term Activity 3
                     }else if(term === 'Thirdterm'){
+
+                        res.primary.studentClass.activity3.Thirdterm.term = term;
+                        res.primary.studentClass.activity3.Thirdterm.date = date;
+                        res.primary.studentClass.activity3.Thirdterm.assesment = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -1008,6 +1035,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.nursery1.Firstterm.term = term;
+                        res.primary.studentClass.nursery1.Firstterm.date = date;
+                        res.primary.studentClass.nursery1.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.nursery1.Firstterm.firstTest = arr;
@@ -1111,6 +1141,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term Nursery 1
                     }else if(term === 'Secondterm'){
+
+                        res.primary.studentClass.nursery1.Secondterm.term = term;
+                        res.primary.studentClass.nursery1.Secondterm.date = date;
+                        res.primary.studentClass.nursery1.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -1217,7 +1251,11 @@ export const POST = async(request, {params}) => {
 
                     //Third Term Nursery 1
                     }else if(term === 'Thirdterm'){
-                        
+
+                        res.primary.studentClass.nursery1.Thirdterm.term = term;
+                        res.primary.studentClass.nursery1.Thirdterm.date = date;
+                        res.primary.studentClass.nursery1.Thirdterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.nursery1.Thirdterm.firstTest = arr;
@@ -1332,6 +1370,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.nursery2.Firstterm.term = term;
+                        res.primary.studentClass.nursery2.Firstterm.date = date;
+                        res.primary.studentClass.nursery2.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.nursery2.Firstterm.firstTest = arr;
@@ -1433,12 +1474,17 @@ export const POST = async(request, {params}) => {
                         }else {
                             console.log('No assesment');
                         }
-                    //Second Term Nursery 1
+                    //Second Term Nursery 2
                     }else if(term === 'Secondterm'){
+
+                        res.primary.studentClass.nursery2.Secondterm.term = term;
+                        res.primary.studentClass.nursery2.Secondterm.date = date;
+                        res.primary.studentClass.nursery2.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.nursery2.Secondterm.firstTest = arr;
+                            
                             await res.save();
                             
                            var result = await Results.findOne({regNo : req.obj.details.regNo});
@@ -1539,9 +1585,13 @@ export const POST = async(request, {params}) => {
                         }
 
 
-                    //Third Term Nursery 1
+                    //Third Term Nursery 2
                     }else if(term === 'Thirdterm'){
-                        
+
+                        res.primary.studentClass.nursery2.Thirdterm.term = term;
+                        res.primary.studentClass.nursery2.Thirdterm.date = date;
+                        res.primary.studentClass.nursery2.Thirdterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.nursery2.Thirdterm.firstTest = arr;
@@ -1657,6 +1707,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.nursery3.Firstterm.term = term;
+                        res.primary.studentClass.nursery3.Firstterm.date = date;
+                        res.primary.studentClass.nursery3.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.nursery3.Firstterm.firstTest = arr;
@@ -1761,12 +1814,16 @@ export const POST = async(request, {params}) => {
                     //Second Term Nursery 3
                     }else if(term === 'Secondterm'){
 
+                        res.primary.studentClass.nursery3.Secondterm.term = term;
+                        res.primary.studentClass.nursery3.Secondterm.date = date;
+                        res.primary.studentClass.nursery3.Secondterm.assesment = assesment;
+                        
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.nursery3.Secondterm.firstTest = arr;
                             await res.save();
                             
-                           var result = await Results.findOne({regNo : req.obj.details.regNo});
+                            var result = await Results.findOne({regNo : req.obj.details.regNo});
                             
                             const firstTest = result.primary.studentClass.nursery3.Secondterm.firstTest;
                         
@@ -1864,8 +1921,12 @@ export const POST = async(request, {params}) => {
                         }
 
 
-                    //Third Term Nursery 1
+                    //Third Term Nursery 3
                     }else if(term === 'Thirdterm'){
+
+                        res.primary.studentClass.nursery3.Thirdterm.term = term;
+                        res.primary.studentClass.nursery3.Thirdterm.date = date;
+                        res.primary.studentClass.nursery3.Thirdterm.assesment = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -1982,6 +2043,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.basic1.Firstterm.term = term;
+                        res.primary.studentClass.basic1.Firstterm.date = date;
+                        res.primary.studentClass.basic1.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.basic1.Firstterm.firstTest = arr;
@@ -2085,6 +2149,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term Basic 1
                     }else if(term === 'Secondterm'){
+
+                        res.primary.studentClass.basic1.Secondterm.term = term;
+                        res.primary.studentClass.basic1.Secondterm.date = date;
+                        res.primary.studentClass.basic1.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -2190,6 +2258,10 @@ export const POST = async(request, {params}) => {
 
                     //Third Term Basic 1
                     }else if(term === 'Thirdterm'){
+
+                        res.primary.studentClass.basic1.Thirdterm.term = term;
+                        res.primary.studentClass.basic1.Thirdterm.date = date;
+                        res.primary.studentClass.basic1.Thirdterm.date = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -2306,6 +2378,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.basic2.Firstterm.term = term;
+                        res.primary.studentClass.basic2.Firstterm.date = date;
+                        res.primary.studentClass.basic2.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.basic2.Firstterm.firstTest = arr;
@@ -2409,6 +2484,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term Basic 2
                     }else if(term === 'Secondterm'){
+
+                        res.primary.studentClass.basic2.Secondterm.term = term;
+                        res.primary.studentClass.basic2.Secondterm.date = date;
+                        res.primary.studentClass.basic2.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -2514,7 +2593,11 @@ export const POST = async(request, {params}) => {
 
                     //Third Term Basic 2
                     }else if(term === 'Thirdterm'){
-                        
+
+                        res.primary.studentClass.basic2.Thirdterm.term = term;
+                        res.primary.studentClass.basic2.Thirdterm.date = date;
+                        res.primary.studentClass.basic2.Thirdterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.basic2.Thirdterm.firstTest = arr;
@@ -2630,6 +2713,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.basic3.Firstterm.term = term;
+                        res.primary.studentClass.basic3.Firstterm.date = date;
+                        res.primary.studentClass.basic3.Firstterm.date = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.basic3.Firstterm.firstTest = arr;
@@ -2733,6 +2819,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term Basic 3
                     }else if(term === 'Secondterm'){
+
+                        res.primary.studentClass.basic3.Secondterm.term = term;
+                        res.primary.studentClass.basic3.Secondterm.date = date;
+                        res.primary.studentClass.basic3.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -2839,6 +2929,10 @@ export const POST = async(request, {params}) => {
                     //Third Term Basic 3
                     }else if(term === 'Thirdterm'){
                         
+                        res.primary.studentClass.basic3.Thirdterm.term = term;
+                        res.primary.studentClass.basic3.Thirdterm.date = date;
+                        res.primary.studentClass.basic3.Thirdterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.basic3.Thirdterm.firstTest = arr;
@@ -2954,6 +3048,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.basic4.Firstterm.term = term;
+                        res.primary.studentClass.basic4.Firstterm.date = date;
+                        res.primary.studentClass.basic4.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.basic4.Firstterm.firstTest = arr;
@@ -3057,6 +3154,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term Basic 4
                     }else if(term === 'Secondterm'){
+
+                        res.primary.studentClass.basic4.Secondterm.term = term;
+                        res.primary.studentClass.basic4.Secondterm.date = date;
+                        res.primary.studentClass.basic4.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -3162,6 +3263,10 @@ export const POST = async(request, {params}) => {
 
                     //Third Term Basic 4
                     }else if(term === 'Thirdterm'){
+
+                        res.primary.studentClass.basic4.Thirdterm.term = term;
+                        res.primary.studentClass.basic4.Thirdterm.date = date;
+                        res.primary.studentClass.basic4.Thirdterm.assesment = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -3278,6 +3383,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.primary.studentClass.basic5.Firstterm.term = term;
+                        res.primary.studentClass.basic5.Firstterm.date = date;
+                        res.primary.studentClass.basic5.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.primary.studentClass.basic5.Firstterm.firstTest = arr;
@@ -3381,6 +3489,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term Basic 5
                     }else if(term === 'Secondterm'){
+
+                        res.primary.studentClass.basic5.Secondterm.term = term;
+                        res.primary.studentClass.basic5.Secondterm.date = date;
+                        res.primary.studentClass.basic5.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -3486,6 +3598,10 @@ export const POST = async(request, {params}) => {
 
                     //Third Term Basic 5
                     }else if(term === 'Thirdterm'){
+
+                        res.primary.studentClass.basic5.Thirdterm.term = term;
+                        res.primary.studentClass.basic5.Thirdterm.date = date;
+                        res.primary.studentClass.basic5.Thirdterm.assesment = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -3607,6 +3723,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.secondary.studentClass.JSS1.Firstterm.term = term;
+                        res.secondary.studentClass.JSS1.Firstterm.date = date;
+                        res.secondary.studentClass.JSS1.Firstterm.assesment = assesment;
+                        
                         if(assesment === 'firstTest'){
 
                             res.secondary.studentClass.JSS1.Firstterm.firstTest = arr;
@@ -3710,6 +3829,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term JSS1
                     }else if(term === 'Secondterm'){
+
+                        res.secondary.studentClass.JSS1.Secondterm.term = term;
+                        res.secondary.studentClass.JSS1.Secondterm.date = date;
+                        res.secondary.studentClass.JSS1.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -3815,6 +3938,10 @@ export const POST = async(request, {params}) => {
 
                     //Third Term JSS1
                     }else if(term === 'Thirdterm'){
+
+                        res.secondary.studentClass.JSS1.Thirdterm.term = term;
+                        res.secondary.studentClass.JSS1.Thirdterm.date = date;
+                        res.secondary.studentClass.JSS1.Thirdterm.assesment = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -3931,6 +4058,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.secondary.studentClass.JSS2.Firstterm.term = term;
+                        res.secondary.studentClass.JSS2.Firstterm.date = date;
+                        res.secondary.studentClass.JSS2.Firstterm.assesment = assesment;
+
                         if(assesment === 'firstTest'){
 
                             res.secondary.studentClass.JSS2.Firstterm.firstTest = arr;
@@ -4034,6 +4164,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term JSS2
                     }else if(term === 'Secondterm'){
+
+                        res.secondary.studentClass.JSS2.Secondterm.term = term;
+                        res.secondary.studentClass.JSS2.Secondterm.date = date;
+                        res.secondary.studentClass.JSS2.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -4139,6 +4273,10 @@ export const POST = async(request, {params}) => {
 
                     //Third Term JSS2
                     }else if(term === 'Thirdterm'){
+
+                        res.secondary.studentClass.JSS2.Thirdterm.term = term;
+                        res.secondary.studentClass.JSS2.Thirdterm.date = date;
+                        res.secondary.studentClass.JSS2.Thirdterm.assesment = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -4254,6 +4392,9 @@ export const POST = async(request, {params}) => {
                     if(term === 'Firstterm'){
 
                         res.secondary.studentClass.JSS3.Firstterm.term = term;
+                        res.secondary.studentClass.JSS3.Firstterm.date = date;
+                        res.secondary.studentClass.JSS3.Firstterm.assesment = assesment;
+                        
                         if(assesment === 'firstTest'){
 
                             res.secondary.studentClass.JSS3.Firstterm.firstTest = arr;
@@ -4357,6 +4498,10 @@ export const POST = async(request, {params}) => {
                         }
                     //Second Term JSS3
                     }else if(term === 'Secondterm'){
+
+                        res.secondary.studentClass.JSS3.Secondterm.term = term;
+                        res.secondary.studentClass.JSS3.Secondterm.date = date;
+                        res.secondary.studentClass.JSS3.Secondterm.assesment = assesment;
 
                         if(assesment === 'firstTest'){
 
@@ -4462,6 +4607,10 @@ export const POST = async(request, {params}) => {
 
                     //Third Term JSS3
                     }else if(term === 'Thirdterm'){
+
+                        res.secondary.studentClass.JSS3.Thirdterm.term = term;
+                        res.secondary.studentClass.JSS3.Thirdterm.date = date;
+                        res.secondary.studentClass.JSS3.Thirdterm.assesment = assesment;
                         
                         if(assesment === 'firstTest'){
 
@@ -4577,6 +4726,9 @@ export const POST = async(request, {params}) => {
                 if(term === 'Firstterm'){
 
                     res.secondary.studentClass.SS1.Firstterm.term = term;
+                    res.secondary.studentClass.SS1.Firstterm.date = date;
+                    res.secondary.studentClass.SS1.Firstterm.assesment = assesment;
+
                     if(assesment === 'firstTest'){
 
                         res.secondary.studentClass.SS1.Firstterm.firstTest = arr;
@@ -4680,6 +4832,10 @@ export const POST = async(request, {params}) => {
                     }
                 //Second Term SS1
                 }else if(term === 'Secondterm'){
+
+                    res.secondary.studentClass.SS1.Secondterm.term = term;
+                    res.secondary.studentClass.SS1.Secondterm.date = date;
+                    res.secondary.studentClass.SS1.Secondterm.assesment = assesment;
 
                     if(assesment === 'firstTest'){
 
@@ -4785,6 +4941,10 @@ export const POST = async(request, {params}) => {
 
                 //Third Term SS1
                 }else if(term === 'Thirdterm'){
+
+                    res.secondary.studentClass.SS1.Thirdterm.term = term;
+                    res.secondary.studentClass.SS1.Thirdterm.date = date;
+                    res.secondary.studentClass.SS1.Thirdterm.assesment = assesment;
                     
                     if(assesment === 'firstTest'){
 
@@ -4901,6 +5061,9 @@ export const POST = async(request, {params}) => {
                 if(term === 'Firstterm'){
 
                     res.secondary.studentClass.SS2.Firstterm.term = term;
+                    res.secondary.studentClass.SS2.Firstterm.date = date;
+                    res.secondary.studentClass.SS2.Firstterm.assesment = assesment;
+
                     if(assesment === 'firstTest'){
 
                         res.secondary.studentClass.SS2.Firstterm.firstTest = arr;
@@ -5002,8 +5165,12 @@ export const POST = async(request, {params}) => {
                     }else {
                         console.log('No assesment');
                     }
-                //Second Term SS1
+                //Second Term SS2
                 }else if(term === 'Secondterm'){
+
+                    res.secondary.studentClass.SS2.Secondterm.term = term;
+                    res.secondary.studentClass.SS2.Secondterm.date = date;
+                    res.secondary.studentClass.SS2.Secondterm.assesment = assesment;
 
                     if(assesment === 'firstTest'){
 
@@ -5107,8 +5274,12 @@ export const POST = async(request, {params}) => {
                         console.log('No assesment');
                     }
 
-                //Third Term SS1
+                //Third Term SS2
                 }else if(term === 'Thirdterm'){
+
+                    res.secondary.studentClass.SS2.Thirdterm.term = term;
+                    res.secondary.studentClass.SS2.Thirdterm.date = date;
+                    res.secondary.studentClass.SS2.Thirdterm.assesment = assesment;
                     
                     if(assesment === 'firstTest'){
 
@@ -5225,6 +5396,9 @@ export const POST = async(request, {params}) => {
                 if(term === 'Firstterm'){
 
                     res.secondary.studentClass.SS1.Firstterm.term = term;
+                    res.secondary.studentClass.SS1.Firstterm.date = date;
+                    res.secondary.studentClass.SS1.Firstterm.assesment = assesment;
+
                     if(assesment === 'firstTest'){
 
                         res.secondary.studentClass.SS3.Firstterm.firstTest = arr;
@@ -5328,6 +5502,10 @@ export const POST = async(request, {params}) => {
                     }
                 //Second Term SS3
                 }else if(term === 'Secondterm'){
+
+                    res.secondary.studentClass.SS3.Secondterm.term = term;
+                    res.secondary.studentClass.SS3.Secondterm.date = date;
+                    res.secondary.studentClass.SS3.Secondterm.assesment = assesment;
 
                     if(assesment === 'firstTest'){
 
@@ -5433,6 +5611,10 @@ export const POST = async(request, {params}) => {
 
                 //Third Term SS3
                 }else if(term === 'Thirdterm'){
+
+                    res.secondary.studentClass.SS3.Thirdterm.term = term;
+                    res.secondary.studentClass.SS3.Thirdterm.date = date;
+                    res.secondary.studentClass.SS3.Thirdterm.assesment = assesment;
                     
                     if(assesment === 'firstTest'){
 

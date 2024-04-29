@@ -31,9 +31,9 @@ export const authConfig = {
         const isOnHomePage = request.nextUrl?.pathname.startsWith("/");
         // ONLY ADMIN CAN REACH THE ADMIN PAGE
   
-        if (isOnAdminPanel && !user?.isAdmin) {
-          return false;
-        }
+        // if (isOnAdminPanel && !user?.isAdmin) {
+        //   return false;
+        // }
   
         // ONLY TEACHER CAN REACH THE PORTAL PAGE
   

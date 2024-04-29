@@ -42,6 +42,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -54,6 +62,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -64,6 +80,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -84,6 +108,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -96,6 +128,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -106,6 +146,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -126,6 +174,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -138,6 +194,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -148,6 +212,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -168,6 +240,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -180,6 +260,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -190,6 +278,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -210,6 +306,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -222,6 +326,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -232,6 +344,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -252,6 +372,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -264,6 +392,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -274,6 +410,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -294,6 +438,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -306,6 +458,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -316,6 +476,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
                         
                         firstTest : [],
@@ -336,6 +504,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -348,6 +524,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -358,6 +542,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -378,6 +570,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -390,6 +590,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -400,6 +608,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -420,6 +636,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -432,6 +656,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -442,6 +674,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -462,6 +702,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -474,6 +722,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -484,6 +740,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -515,6 +779,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -527,6 +799,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -537,6 +817,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -557,6 +845,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -569,6 +865,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -579,6 +883,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -599,6 +911,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -611,6 +931,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -621,6 +949,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -641,6 +977,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -653,6 +997,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -663,6 +1015,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -683,6 +1043,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -695,6 +1063,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -705,6 +1081,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],
@@ -725,6 +1109,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -737,6 +1129,14 @@ const resultsSchema = new mongoose.Schema(
                             type : String,
                         },
 
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
+                        },
+
                         firstTest : [],
                         secondTest : [],
                         exam : [],
@@ -746,6 +1146,14 @@ const resultsSchema = new mongoose.Schema(
 
                         term : {
                             type : String,
+                        },
+
+                        date : {
+                            type : String
+                        },
+
+                        assesment : {
+                            type : String
                         },
 
                         firstTest : [],

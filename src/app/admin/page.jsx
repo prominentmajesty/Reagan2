@@ -1,12 +1,16 @@
 import React from 'react';
-import styles from './admin.module.css'
+import Admin from '@/components/portal/admin/Admin';
+import { auth } from '@/lib/auth';
 
-const AdminPage = () => {
+const AdminPage = async () => {
+
+  const session = await auth();
+
   return (
-    <div>
-      <h4>Admin Page..</h4>
-    </div>
+    <>
+    <Admin session={session}/>
+    </>
   )
 }
 
-export default AdminPage
+export default AdminPage;

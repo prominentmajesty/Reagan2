@@ -4,8 +4,6 @@ import Sidebar from '../sidebar/Sidebar';
 import HandBurger from '../handburger/Handburger';
 import MobileSidebar from '../mobileSidebar/MobileSidebar';
 import styles from './viewResult.module.css';
-import Unqualified from '../unqualified/Unqualified';
-import SuspenseWork from '../suspense/Suspense';
 import { useRouter } from 'next/navigation';
 import Result from '../result/Result';
 
@@ -71,11 +69,12 @@ const ViewResult = ({session}) => {
         <Sidebar/>
         <div className={styles.right}>
           <HandBurger open={open} handleClicked={handleClicked}/>
+          <h5 className={styles.regNoText}>Enter Student Registration Number to View Results..</h5>
           <div className={`input-group mb-3 ${styles.search}`}>
-            <input type="text" name='search' value={search} onChange={handleChange} class="form-control" placeholder="Enter Registration Number.." aria-label="Enter Registration Number.." aria-describedby="button-addon2" />
+            <input type="text" name='search' value={search} onChange={handleChange} className="form-control" placeholder="Enter Registration Number.." aria-label="Enter Registration Number.." aria-describedby="button-addon2" />
             <button class="btn btn-outline-secondary" onClick={() => {handleSearch(search)}} type="button" id="button-addon2">Search..</button>
           </div>
-        <Result studentresult = {result}/>
+          <Result studentresult = {result}/>
         </div>
       </div>
       {/* For mobile View */}

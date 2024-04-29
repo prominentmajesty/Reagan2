@@ -30,43 +30,43 @@ const StudentForm = ({ update }) => {
     }, [state])
    
     return (
-    <form ref={ref} className={styles.form} action={formAction}>
-  
-      <legend>Enter student's Records</legend>
+      <form ref={ref} className={styles.form} action={formAction}>
+    
+        <legend>Enter student's Records</legend>
 
-      {
-        message? <div className={styles.flash}>Data Upload was successful..</div> : ''
-      }
+        {
+          message? <div className={styles.flash}>Data Upload was successful..</div> : ''
+        }
 
-      <div className="for-firstName">
-        <label htmlFor='firstName'>First Name</label>
-        <input id="firstName" type="text" className={styles.input} placeholder="first name" name="firstname" />
-      </div>
+        <div className="for-firstName">
+          <label htmlFor='firstName'>First Name</label>
+          <input id="firstName" type="text" className={styles.input} placeholder="first name" name="firstname" />
+        </div>
 
-      <div className="for-otherNames">
-        <label htmlFor='otherNames'>Other Names</label>
-        <input id="otherNames" type="text" className={styles.input} placeholder="other names" name="othernames" />
-      </div>
+        <div className="for-otherNames">
+          <label htmlFor='otherNames'>Other Names</label>
+          <input id="otherNames" type="text" className={styles.input} placeholder="other names" name="othernames" />
+        </div>
 
-      <div className="form-age">
-        <label htmlFor='age'>Age</label>
-        <input id="age" type="text" className={styles.input} placeholder="age" name="age" />
-      </div>
+        <div className="form-age">
+          <label htmlFor='age'>Age</label>
+          <input id="age" type="text" className={styles.input} placeholder="age" name="age" />
+        </div>
 
-      <div className="for-address">
-        <label htmlFor='address'>Address</label>
-        <input id="address" type="text" className={styles.input} placeholder="address" name="address" />
-      </div>
+        <div className="for-address">
+          <label htmlFor='address'>Address</label>
+          <input id="address" type="text" className={styles.input} placeholder="address" name="address" />
+        </div>
 
-      <div className="for-parentphone">
-        <label htmlFor='parentphone'>Parent Phone Number</label>
-        <input id="parentphone" type="text" className={styles.input} placeholder="parent phone" name="parentphone" />
-      </div>
-      
-      <button className={styles.formBTN}>Upload information</button>
-      
-      <div className={styles.studentFormError}>{state?.error}</div>
-    </form>
+        <div className="for-parentphone">
+          <label htmlFor='parentphone'>Parent Phone Number</label>
+          <input id="parentphone" type="text" className={styles.input} placeholder="parent phone" name="parentphone" />
+        </div>
+        
+        <button className={styles.formBTN}>Upload information</button>
+        
+        <div className={styles.studentFormError}>{state?.error}</div>
+      </form>
   )
 }
 

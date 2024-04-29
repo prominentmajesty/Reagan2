@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { images } from '@/constants'
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import styles from './studentDetails.module.css';
 
 const StudentDetails = ({ students }) => {
@@ -22,6 +22,7 @@ const StudentDetails = ({ students }) => {
   return (
     <>
       <div className={`table-responsive ${styles.table_container}`}>
+        <span type="button" className={`${styles.continue_registration}`}><h4 className={styles.continue_text}>Supreme Reagan Registered students</h4></span>
         <table class={`table caption-top table-striped table-hover ${styles.table_custom}`}>
           <thead>
             <tr>

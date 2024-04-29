@@ -1,19 +1,16 @@
 
 @media (max-width : 1013px) {
+
     .table_container{
-        display: flex;
-        flex-direction: column;
-        overflow-x: scroll;
-        width: 100%;
-        padding-left: 0.3rem;
-        margin-top: -1.1rem;
-        background-color: rgb(209, 219, 216) !important
+        margin-right: 1.4rem;
     }
-    .search{
-        position: fixed;
-        width: 100%;
-        margin-bottom: 5rem;
-        padding-right: 2.5rem;
+
+    .continue_registration{
+        padding-left: 1rem;
+    }
+
+    .continue_text{
+        line-height: 1.8rem;
     }
 
     .profile{
@@ -36,6 +33,14 @@
 }
 
 @media (min-width : 1013px) {
+
+    .continue_registration{
+        background-color: cadetblue;
+        color: rgb(39, 38, 38);
+        display: none;
+        width: 0;
+    }
+
     .table_container{
         margin-left: 0.7rem;
         margin-right: 1rem;
