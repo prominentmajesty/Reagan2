@@ -47,7 +47,7 @@ const Profile = ({session}) => {
               <div className={styles.right}>
                 <HandBurger open={open} handleClicked={handleClicked}/>
                 <div className={styles.right_color}>
-                  <span>jfdbfdfjopkm hdhjdfjkfjkdf fdhjdfjdfjkdf fdjkdfkjfdjkdf fjkdfjkdfjkdfjkdf fjkfdjkdfjkdfkjldf fdkjfdjkdfkjdfkjdf iorhirhorir kfhofdhiofniof</span>
+            
                 </div>
               </div>
             </div>

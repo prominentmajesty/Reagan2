@@ -1,0 +1,13 @@
+.bread_crumb{
+    padding-left: 2rem;
+    background-color: rgb(28, 28, 54);
+    color: white !important;
+    gap: 0.5rem;
+    padding-top: 2rem;
+    
+}
+.home_crumb{
+    font-weight: 900;
+    cursor: pointer;
+    color: rgb(196, 183, 183);
+}

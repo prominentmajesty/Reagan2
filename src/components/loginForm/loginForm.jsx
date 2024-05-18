@@ -30,6 +30,9 @@ const LoginForm = () => {
           {"Don't have an account?"} <b>Register</b>
         </Link>
       </div>
+      <Link href="/" className={styles.back_to_home}>
+          {"Back to Home"}
+        </Link>
     </form>
   );
 };

@@ -1,11 +1,13 @@
 'use client';
-import React, {useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import HandBurger from '../handburger/Handburger';
 import MobileSidebar from '../mobileSidebar/MobileSidebar';
 import styles from './viewResult.module.css';
 import { useRouter } from 'next/navigation';
 import Result from '../result/Result';
+import Unqualified from '../unqualified/Unqualified';
+import SuspenseWork from '../suspense/Suspense';
 
 const ViewResult = ({session}) => {
 
@@ -64,22 +66,33 @@ const ViewResult = ({session}) => {
   }
 
   return (
+  state ?
     <>
-      <div className={styles.viewResult}>
-        <Sidebar/>
-        <div className={styles.right}>
-          <HandBurger open={open} handleClicked={handleClicked}/>
-          <h5 className={styles.regNoText}>Enter Student Registration Number to View Results..</h5>
-          <div className={`input-group mb-3 ${styles.search}`}>
-            <input type="text" name='search' value={search} onChange={handleChange} className="form-control" placeholder="Enter Registration Number.." aria-label="Enter Registration Number.." aria-describedby="button-addon2" />
-            <button class="btn btn-outline-secondary" onClick={() => {handleSearch(search)}} type="button" id="button-addon2">Search..</button>
-          </div>
-          <Result studentresult = {result}/>
-        </div>
-      </div>
-      {/* For mobile View */}
-      <MobileSidebar open={open} close={close}/>
+      {
+        state[0].isTeacher ? 
+          <>
+            <div className={styles.viewResult}>
+                <Sidebar/>
+                <div className={styles.right}>
+                  <HandBurger open={open} handleClicked={handleClicked}/>
+                  <h5 className={styles.regNoText}>Enter Student Registration Number to View Results..</h5>
+                  <div className={`input-group mb-3 ${styles.search}`}>
+                    <input type="text" name='search' value={search} onChange={handleChange} className="form-control" placeholder="Enter Registration Number.." aria-label="Enter Registration Number.." aria-describedby="button-addon2" />
+                    <button class="btn btn-outline-secondary" onClick={() => {handleSearch(search)}} type="button" id="button-addon2">Search..</button>
+                  </div>
+                  <Result studentresult = {result}/>
+                </div>
+              </div>
+            {/* For mobile View */}
+            <MobileSidebar open={open} close={close}/>
+          </>
+        :
+        <>
+          <Unqualified/>
+        </>
+      } 
     </>
+  : <SuspenseWork />
     // state ?
       //   <>
       //     {

@@ -44,6 +44,9 @@ const RegisterForm = () => {
           {"Already have an account ?"} <b>Login</b>
         </Link>
       </div>
+      <Link href="/" className={styles.registerLink}>
+        {"Back to Home"}
+      </Link>
     </form>
   )
 }
