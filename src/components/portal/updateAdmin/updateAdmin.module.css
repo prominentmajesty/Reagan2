@@ -1,0 +1,101 @@
+.Updatemanagment{
+    width: 85%;
+    margin: 0px auto;
+    background-color: rgb(28, 28, 54);
+    display: flex;
+    justify-content : space-around
+}
+.formate_field{
+    background-color: rgb(28, 28, 54);
+    border: 1px solid gray;
+    color: white;
+}
+.date_input{
+    height: 2.8rem;
+    border-radius: 7px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+    @media (max-width : 230px) {
+        .Updatemanagment{
+            display: flex;
+            flex-direction: column;
+            justify-content : center
+        }
+    }
+
+.update_post{
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    border-radius: 7px;
+}
+
+.caption{
+    color: white;
+    text-align: center;
+    line-height: normal;
+}
+
+.select_items{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 70%;
+    margin: 0px auto;
+    margin-top: -1.7rem;
+}
+
+/* .date{
+    width:250px;
+} */
+.label{
+    color: white;
+}
+.formate{
+    margin-bottom: 0.8rem;
+}
+
+@media (min-width : 800px) {
+    .wrapper{
+        width: 100%;
+        display: flex;
+        gap : 0.8rem;
+    }
+    .textarea{
+        width: 565px
+    }
+    .date_input{
+        width: 385px;
+    }
+}
+@media (max-width : 800px) {
+    .textarea{
+        width: 100%
+    }
+    .date_input{
+        width: 100%;
+    }
+    .wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap : 0.8rem;
+        
+    }
+}
+
+.updateBtn{
+    margin-top : 0.6rem
+}
+
+.subject_label{
+    color: white;
+    margin-bottom: -0.6rem;
+}
+
+.subject_input{
+    height: 2.7rem;
+    border-radius: 12px;
+    padding-left: 1rem;
+}

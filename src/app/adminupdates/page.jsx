@@ -1,11 +1,20 @@
+'use server';
 import React from 'react';
-import { MdError } from "react-icons/md";
+// import { MdError } from "react-icons/md";
 import styles from './adminupdates.module.css';
+import UpdateAdmin from '@/components/portal/updateAdmin/UpdateAdmin';
+import { auth } from '@/lib/auth';
 
-function page() {
+const page = async() => {
+
+  const session = await auth();
+
   return (
     <div className={styles.container}>
-      <MdError size={85} className={styles.icon}/><h5 className={styles.text}><b>Oops..</b> Your database free trial version has expired and you will no longer be able to see the contents in this page. Kindly purchase a live production Bucket to view your contents again</h5>
+      <div className={styles.bread_crumb}>
+        <a className={styles.home_crumb} href='/admin'><span>Admin</span></a> <span>/</span> <span>Updates</span>
+      </div>
+      <UpdateAdmin session={session}/>
     </div>
   )
 }

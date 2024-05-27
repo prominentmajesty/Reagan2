@@ -9,7 +9,7 @@ function TeacherAdmin({session}) {
 
   const [state, setState] = useState(null);
   const [data, setData] = useState(null);
-  const [teacherStatus, setTeacherStatus]= useState(true);
+  const [teacherStatus, setTeacherStatus] = useState(true);
   const [adminStatus, setAdminstatus] = useState(true);
   const router = useRouter();
 
@@ -87,7 +87,7 @@ function TeacherAdmin({session}) {
    }
   }
 
-  const erase = async (e,email) => {
+  const erase = async (e, email) => {
     
     try{
 
@@ -109,7 +109,7 @@ function TeacherAdmin({session}) {
     }catch(err){
       console.log(err);
     }
-  }
+  } 
 
   return (
     state ? 
@@ -151,13 +151,13 @@ function TeacherAdmin({session}) {
                               <input checked={user.isAdmin} className={`form-check-input ${styles.ckeck_btn}`} type="checkbox" value="" id='flexCheckDefault'/>
                             </div>
                           </th>
-                          <th>{user.firstName}kjsdkjdskldskldsklkl</th>
-                          <th>{user.otherName}kskdkdskldkdkldssdd</th>
-                          <th>{user.contact}jkdsjsdkjsdkjdskjdskj</th>
-                          <th>{user.LGA} dsjkdskjdskjdsdssd</th>
-                          <th>{user.state} ekjewjkewkjewkjwek</th>
-                          <th>{user.Nationality} jsdfjhsdjdsjkdsjkdjk</th>
-                          <th>{user.Address} jsdjdjdskjdsjkdkjdskjdskjdskjd</th>
+                          <th>{user.firstName}</th>
+                          <th>{user.otherName}</th>
+                          <th>{user.contact}</th>
+                          <th>{user.LGA}</th>
+                          <th>{user.state}</th>
+                          <th>{user.Nationality}</th>
+                          <th>{user.Address}</th>
                           <th>
                             <div className={`form-check form-switch ${styles.status}`}>
                               <input onClick={(e) => {teacher(e, user.email)}} className={`btn btn-primary ${styles.btn_action}`} type="reset" value={user.isTeacher ? "Remove teacher" : "Add teacher"}/>
