@@ -1,16 +1,10 @@
 import mongoose from "mongoose";
 
-const updates  = new mongoose.Schema({
+const updatesSchema  = new mongoose.Schema({
 
     category : {
-        management : {
-            type : String,
-            required : true
-        },  
-        people : {
-            type : String,
-            required : true
-        }
+       type : String,
+       required : true
     },
 
     subject : {
@@ -31,4 +25,4 @@ const updates  = new mongoose.Schema({
     {timestamps : true}
 );
 
-export const Updates = mongoose.models?.Updates || mongoose.model('Updates', updates);
+export const Updates = mongoose.models?.Updates || mongoose.model('Updates', updatesSchema);

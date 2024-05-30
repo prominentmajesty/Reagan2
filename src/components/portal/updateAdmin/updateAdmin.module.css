@@ -17,6 +17,39 @@
     padding-right: 1rem;
 }
 
+    @media (max-width : 1013px) {
+        .flash{
+            background-color: rgb(3, 168, 58);
+            color: white;
+            padding: 1.3rem;
+            border-radius: 5px;
+            font-size: larger;
+        }
+        .error{
+            background-color: rgb(212, 11, 11);
+            color: white;
+            padding: 1.3rem;
+            border-radius: 5px;
+            font-size: larger;
+        }
+    }
+
+    @media (min-width : 1013px) {
+        .flash{
+            background-color: rgb(3, 168, 58);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 5px
+        }
+        .error{
+            background-color: rgb(212, 11, 11);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-size: larger;
+        }
+    }
+
     @media (max-width : 230px) {
         .Updatemanagment{
             display: flex;

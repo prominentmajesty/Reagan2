@@ -28,7 +28,6 @@ export const PATCH = async(request, {params}) => {
 
 export const PUT = async(request, {params}) => {
     const { isAdmin } = await request.json();
-
     try{
 
         connectToDb();
@@ -42,7 +41,6 @@ export const PUT = async(request, {params}) => {
 export const DELETE = async(request, {params}) => {
     const { email } = await request.json();
     console.log(email);
-    
     try{
 
         connectToDb();

@@ -2,20 +2,11 @@ import { connectToDb } from "@/lib/utils";
 import { Updates } from "@/lib/updates";
 
 export const POST = async (request, { params }) => {
-    const { category, subject, updates, date } = await request.json();
+    // const {  } = await request.json();
       
 
     try {
-        connectToDb();
-
-        const doc = new Updates({
-            category : category,
-            subject : subject,
-            updates : updates,
-            date : date
-        });
-
-        await doc.save();
+        connectToDb()
         
         return new Response('Update Successfully Uploaded Successfully..', {status : 200});
 
