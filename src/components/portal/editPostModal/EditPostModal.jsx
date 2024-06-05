@@ -44,7 +44,6 @@ const EditPostModal = ({singleUpdate, closeEdit}) => {
             closeEdit();
          }, 3000);
 
-
         }else{
           
           setFailed(true);
@@ -52,7 +51,6 @@ const EditPostModal = ({singleUpdate, closeEdit}) => {
           setTimeout(() => {
             setFailed(false);
           }, 3000);
-
         }
 
       }catch(err){

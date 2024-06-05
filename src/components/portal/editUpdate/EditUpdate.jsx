@@ -9,10 +9,13 @@ import DeleteUpdateModal from '../deleteUpdateModal/DeleteUpdateModal';
 
 const EditUpdate = ({session}) => {
 
+    const [persistState, setPersistState] = useState(false);
     const [state, setState] = useState(null);
     const [updates, setUpdates] = useState(null);
     const [singleUpdate, setSingleUpdate] = useState(null);
     const [editModal, setEditModal] = useState(false);
+    const [id, setId] = useState(null);
+    const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
     const router = useRouter();
 
@@ -43,6 +46,26 @@ const EditUpdate = ({session}) => {
       fetupdates();
     },[]);
 
+    useEffect(() => {
+      const fetchUpdates = async () => {
+        if(persistState) {
+          try {
+  
+            const res = await fetch('/api/user/updates/getupdates');
+            
+            if(res.status === 200){
+              const docs = await res.json();
+              setUpdates(docs);
+            }
+  
+          }catch(err) {
+            console.log(err);
+          }
+        }
+      }
+      fetchUpdates();
+    }, [persistState]);
+
     const openEdit = (_id, subject, updates) => {
       const obj = {
         _id,
@@ -68,6 +91,20 @@ const EditUpdate = ({session}) => {
       setUpdates(doc)
     }
 
+    const closeDeleteModal = e => {
+      setOpenDeleteModal(false);
+    }  
+
+    const deleteUpdate = _id => {
+      setPersistState(false);
+      setId(_id)
+      setOpenDeleteModal(true);
+    }
+
+   const launchpersistState = () => {
+    setPersistState(true)
+   }
+
   return (
     state ?
       <>
@@ -75,7 +112,7 @@ const EditUpdate = ({session}) => {
           state[0].isAdmin ? 
           <>
             {editModal ? <EditPostModal singleUpdate = {singleUpdate} closeEdit = {closeEdit}/> : ''}
-            <DeleteUpdateModal />
+            { openDeleteModal ? <DeleteUpdateModal id = {id} closeDeleteModal = {closeDeleteModal} launchpersistState = {launchpersistState} /> : ''}
             <div className={styles.parent}>
               <div className={styles.bread_crumb}>
                 <div className={styles.home_crumb_parent}>
@@ -102,7 +139,7 @@ const EditUpdate = ({session}) => {
                       <p className={`card-text ${styles.custom_card_text}`}>{update.updates}</p>
                       <div className={styles.btn_container}>
                         <a onClick={() => {openEdit(update._id, update.subject, update.updates )}} className={`btn btn-primary ${styles.custom_btn}`}>Edit post</a>
-                        <a href="#" className={`btn btn-danger ${styles.custom_btn}`}>Delete post</a>
+                        <a href="#" onClick={() => {deleteUpdate(update._id)}} className={`btn btn-danger ${styles.custom_btn}`}>Delete post</a>
                       </div>
                     </div>
                   </div>

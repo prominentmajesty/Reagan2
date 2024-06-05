@@ -16,3 +16,17 @@ export const PATCH = async (request, { params }) => {
         return new new Response("Failed to fetch stuents", { status: 500 })
     }
 } 
+
+export const DELETE = async (request, { params }) => {
+      const _id = params._id;
+    try {
+        connectToDb()
+
+       const res = await Updates.findOneAndDelete({ _id })
+        
+        return new Response(JSON.stringify(res), {status : 200});
+
+    } catch (error) {
+        return new new Response("Failed to fetch stuents", { status: 500 })
+    }
+} 

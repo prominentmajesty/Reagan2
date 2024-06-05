@@ -14,6 +14,6 @@ export const GET = async (request, { params }) => {
         console.log(res);
         return new Response(JSON.stringify(res), { status: 200 })
     } catch (error) {
-        return new Response("Failed to fetch stuents", { status: 500 })
+        return new Response("Failed to fetch students", { status: 500 })
     }
 } 
