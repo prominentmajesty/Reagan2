@@ -48,6 +48,12 @@
     border-left: 4px solid red;
 }
 
+.custom_card_header{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.7rem;
+}
+
 .btn_container{
     display: flex;
     gap: 1rem;
@@ -82,4 +88,12 @@
         flex-direction: column;
         gap: 1rem;
     }   
+}
+
+@media (max-width : 428px) {
+    .custom_card_header{
+        display: flex;
+        flex-direction: column;
+        gap : 0.2rem
+    }
 }

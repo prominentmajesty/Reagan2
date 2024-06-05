@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const updatesSchema  = new mongoose.Schema({
+const updatesSchema = new mongoose.Schema({
 
     category : {
        type : String,
