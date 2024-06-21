@@ -2,14 +2,14 @@ import mongoose, { Schema } from "mongoose";
 
 const parentSchema  = new mongoose.Schema({
 
-    title : {
+    firstname : {
         type : String,
-        required : true
+        required : true,
     },
 
-    Name : {
+    othernames : { 
         type : String,
-        required : true
+        required : true,
     },
 
     address : {
@@ -17,13 +17,14 @@ const parentSchema  = new mongoose.Schema({
         required : true,
     },
 
-    state : {
+    phone : {
         type : String,
         required : true,
     },
 
-    image : {
+    gender : { 
         type : String,
+        required : true
     },
 
     LGA : {
@@ -31,11 +32,19 @@ const parentSchema  = new mongoose.Schema({
         required : true
     },
 
-    Phone : {
+    city : {
         type : String,
         required : true,
-    }
+    },
 
+    nationality : { 
+        type : String,
+        required : true
+    },
+
+    image : {
+        type : String,
+    },
 },
     {timestamps : true}
 );

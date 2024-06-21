@@ -32,7 +32,9 @@ const StudentDetails = ({ students }) => {
               <th className={styles.space}>FirstName</th>
               <th className={styles.space}>OtherNames</th>
               <th className={styles.space}>Age</th>
-              <th className={styles.space}>Address</th>
+              <th className={styles.space}>Gender</th>
+              <th className={styles.space}>Class Admited</th>
+              <th className={styles.space}>Section</th>
               <th className={styles.space}>Parent Line</th>
               <th className={styles.space}>Parents/guardian</th>
               <th className={styles.space}>Upload Results</th>
@@ -49,7 +51,9 @@ const StudentDetails = ({ students }) => {
                 <th className={styles.space}>{student.firstname}</th>
                 <th className={styles.space}>{student.othernames}</th>
                 <th className={styles.space}>{student.age}</th>
-                <th className={styles.space}>{student.address}</th>
+                <th className={styles.space}>{student.gender}</th>
+                <th className={styles.space}>{student.classAdmited}</th>
+                <th className={styles.space}>{student.section}</th>
                 <th className={styles.space}>{student.parentphone}</th>
                 <th className={styles.space}>{student.parent? <button>Parents</button> : 'No parent yet'}</th>
                 <th className={`${styles.space} ${styles.click}`}><IoCloudUploadOutline onClick={() => {exec(student.regNo)}} size={25}/></th>

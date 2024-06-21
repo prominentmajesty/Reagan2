@@ -53,9 +53,23 @@ const StudentForm = ({ update }) => {
           <input id="age" type="text" className={styles.input} placeholder="age" name="age" />
         </div>
 
-        <div className="for-address">
-          <label htmlFor='address'>Address</label>
-          <input id="address" type="text" className={styles.input} placeholder="address" name="address" />
+        <div className="for-gender">
+          <label htmlFor='gender'>Gender</label>
+          <input id="gender" type="text" className={styles.input} placeholder="Gender" name="gender" />
+        </div>
+
+        <div className="for-classAdmited">
+          <label htmlFor='classAdmited'>CLass Admitted</label>
+          <input id="classAdmited" type="text" className={styles.input} placeholder="CLass Admitted" name="classAdmited" />
+        </div>
+        
+        <div className="for-section">
+          <label htmlFor='section'>Section</label>
+          <select className={`form-select ${styles.input}`} id="section" placeholder="section" name="section" aria-label="Default select example">
+            <option selected></option>
+            <option value="Primary">Primary section</option>
+            <option value="Secondary">Secondary section</option>
+          </select>
         </div>
 
         <div className="for-parentphone">

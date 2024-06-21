@@ -24,8 +24,6 @@ function Admin({session}) {
       !session ? router.push('/') : console.log('');
     }, []);
 
-    console.log(state);
-
   return (
     state ? 
       <>

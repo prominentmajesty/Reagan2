@@ -22,9 +22,19 @@ const studentSchema  = new mongoose.Schema({
         required : true,
     },
 
-    address : {
+    gender : {
         type : String,
         required : true,
+    },
+
+    classAdmited : {
+        type : String,
+        required : true
+    },
+
+    section: {
+        type : String,
+        required : true
     },
 
     image : {

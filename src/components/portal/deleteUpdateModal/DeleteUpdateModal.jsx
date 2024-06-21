@@ -37,22 +37,22 @@ const DeleteUpdateModal = ({id, closeDeleteModal, launchpersistState}) => {
 
   return (
     <div className={styles.container}>
-        <div className={styles.close_icon}>
-            <MdClose onClick={close} className={styles.close} color='white' size={30} />
+      <div className={styles.close_icon}>
+          <MdClose onClick={close} className={styles.close} color='white' size={30} />
+      </div>
+      <div className={styles.text_container}>
+        <h5>Are you sure you want to delete this update ?? <br /><br/> Be aware that this action cannot be revoked once performed !!</h5>
+        <div className = {styles.btn_container}>
+          <button type="button" onClick={close} className="btn btn-secondary">Cancel</button>
+          <button type="button" onClick={removePost} className="btn btn-danger">Delete</button>
         </div>
-        <div className={styles.text_container}>
-            <h5>Are you sure you want to delete this update ?? <br /><br/> Be aware that this action cannot be revoked once performed !!</h5>
-            <div className = {styles.btn_container}>
-                <button type="button" onClick={close} className="btn btn-secondary">Cancel</button>
-                <button type="button" onClick={removePost} className="btn btn-danger">Delete</button>
+          {error ? 
+            <div className={`alert alert-danger ${styles.error}`} role="alert">
+              Failed !! could not perform delete operation
             </div>
-            {error ? 
-              <div className={`alert alert-danger ${styles.error}`} role="alert">
-                Failed !! could not perform delete operation
-              </div>
-              : ''
-            }
-        </div>
+            : ''
+          }
+      </div>
     </div>
   )
 }

@@ -1,0 +1,36 @@
+.container{
+    width: 70%;
+    height: 63vh;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    overflow-y: scroll;
+    transform: translateY(3rem);
+    padding: 2rem;
+}
+
+.success{
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.format_h4{
+    color: white;
+}
+
+.label{
+    color: white;
+}
+
+.text{
+    border: 1px solid gray;
+    color: white;
+    padding-left: 0.5rem;
+}
+
+.btn{
+    margin-top: 0.8rem;
+    width: 100%;
+}
+

@@ -82,7 +82,9 @@ export const studentDetails = async (prevState, formData) => {
     firstname, 
     othernames,
     age,
-    address,
+    gender,
+    classAdmited,
+    section,
     parentphone,
 
   } = Object.fromEntries(formData);
@@ -99,7 +101,9 @@ export const studentDetails = async (prevState, formData) => {
       firstname,
       othernames,
       age,
-      address,
+      gender,
+      classAdmited,
+      section,
       parentphone
     });
   

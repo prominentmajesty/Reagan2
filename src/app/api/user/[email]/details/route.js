@@ -13,7 +13,7 @@ export const GET = async (request, { params }) => {
     }
 } 
 
-export const PATCH = async(request, {params}) => {
+export const POST = async(request, {params}) => {
     const { isTeacher } = await request.json();
 
     try{

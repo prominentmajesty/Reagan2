@@ -1,0 +1,15 @@
+.home_crumb_parent{
+    margin-top: 2.7rem;
+    transform: translateX(2rem);
+}
+
+.home_crumb{
+    font-weight: 900;
+    font-size :large;
+    cursor: pointer;
+    color: rgb(196, 183, 183);
+}
+
+.bread{
+    color: white;
+}

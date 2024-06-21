@@ -1,11 +1,10 @@
 import { connectToDb } from "@/lib/utils";
 import { Updates } from "@/lib/updates";
 
-export const POST = async (request, { params }) => {
-    const { category, subject, updates, date } = await request.json();
-      
+export const POST = async (request, { params }) => {  
 
     try {
+        const { category, subject, updates, date } = await request.json();
         connectToDb();
 
         const doc = new Updates({
