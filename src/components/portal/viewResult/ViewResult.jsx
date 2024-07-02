@@ -93,30 +93,6 @@ const ViewResult = ({session}) => {
       } 
     </>
   : <SuspenseWork />
-    // state ?
-      //   <>
-      //     {
-      //       state[0].isTeacher ? 
-      //         <>
-      //           <div className={styles.viewResult}>
-      //             <Sidebar/>
-      //             <div className={styles.right}>
-      //               <HandBurger open={open} handleClicked={handleClicked}/>
-      //               <div className={styles.right_color}>
-      //                 <span>jfdbfdfjopkm hdhjdfjkfjkdf fdhjdfjdfjkdf fdjkdfkjfdjkdf fjkdfjkdfjkdfjkdf fjkfdjkdfjkdfkjldf fdkjfdjkdfkjdfkjdf iorhirhorir kfhofdhiofniof</span>
-      //               </div>
-      //             </div>
-      //           </div>
-      //           {/* For mobile View */}
-      //           <MobileSidebar open={open} close={close}/>
-      //         </>
-      //       : 
-      //       <>
-      //         <Unqualified/>
-      //       </>
-      //     }
-      //   </>
-      // : <SuspenseWork />
   )
 }
 

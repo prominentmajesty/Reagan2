@@ -37,13 +37,13 @@ const studentSchema  = new mongoose.Schema({
         required : true
     },
 
-    image : {
-        type : String,
-    },
-
     parentphone : {
         type : String,
         required : true
+    },
+
+    image : {
+        type : String,
     },
 
     parent : {

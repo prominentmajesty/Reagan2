@@ -129,6 +129,7 @@ function TeacherAdmin({session}) {
                     <th scope="col">Admin Status</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Other Names</th>
+                    <th scope="col">Section</th>
                     <th scope="col">Contact</th>
                     <th scope="col">LGA</th>
                     <th scope="col">State</th>
@@ -155,6 +156,7 @@ function TeacherAdmin({session}) {
                           </th>
                           <th>{user.firstName}</th>
                           <th>{user.otherName}</th>
+                          <th>{user.section}</th>
                           <th>{user.contact}</th>
                           <th>{user.LGA}</th>
                           <th>{user.state}</th>

@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema(
             type : String,
         },
 
+        section : {
+            type : String,
+        },
+
         contact : {
             type : String,
         },
@@ -48,7 +52,7 @@ const userSchema = new mongoose.Schema(
 
         isTeacher: {
             type : Boolean,
-            default : true
+            default : false
         },
 
         isAdmin : {

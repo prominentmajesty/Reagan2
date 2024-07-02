@@ -77,6 +77,31 @@
     }
 }
 
+/* FOR AUTO SEARCH.. */
+/* @media (min-width : 1015px) {
+    .auto_Search{
+        width: 51.2%;
+        margin: 0px auto;
+        display: flex;
+        position: absolute;
+        z-index: 2;
+        margin-left: 0.7rem;
+        transform: translateY(3.2rem);
+    }
+} 
+
+@media (max-width : 1015px) {
+    .auto_Search{
+        width: 92.6%;
+        margin: 0px auto;
+        display: flex;
+        position: absolute;
+        z-index: 2;
+        transform: translateY(-24.2rem);
+        background-color: rgb(28, 28, 54);
+    }
+} */
+
 /* @media (max-width : 1013px) {
     .right_color{
         margin-top: 5rem;

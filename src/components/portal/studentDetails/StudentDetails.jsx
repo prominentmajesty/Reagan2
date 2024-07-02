@@ -3,7 +3,6 @@ import React from 'react';
 import Image from 'next/image';
 import { images } from '@/constants'
 import { IoCloudUploadOutline } from "react-icons/io5";
-import { HiOutlineViewfinderCircle } from "react-icons/hi2";
 import { useRouter } from "next/navigation";
 import styles from './studentDetails.module.css';
 
@@ -14,10 +13,17 @@ const StudentDetails = ({ students }) => {
   const exec = data => {
     var arr = data.split("");
     arr.splice(3, 1);
-    arr.splice(7, 1);
+    arr.splice(6, 1);
+    arr.splice(10, 1);
     const str = arr.join('')
     router.push(`/resultupload/${str}`);
   }
+
+  const sortByCreatedAt = (students) => {
+    return students.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  };
+
+  const sortedData = sortByCreatedAt([...students]);
 
   return (
     <>
@@ -29,8 +35,8 @@ const StudentDetails = ({ students }) => {
               <th>Index</th>
               <th className={styles.space}>Image</th>
               <th className={styles.space}>RegNo</th>
-              <th className={styles.space}>FirstName</th>
-              <th className={styles.space}>OtherNames</th>
+              <th className={styles.space}>First name</th>
+              <th className={styles.space}>Other names</th>
               <th className={styles.space}>Age</th>
               <th className={styles.space}>Gender</th>
               <th className={styles.space}>Class Admited</th>
@@ -38,11 +44,11 @@ const StudentDetails = ({ students }) => {
               <th className={styles.space}>Parent Line</th>
               <th className={styles.space}>Parents/guardian</th>
               <th className={styles.space}>Upload Results</th>
-              <th className={styles.space}>View Results</th>            
+              {/* <th className={styles.space}>View Results</th>             */}
             </tr>
           </thead>
           <tbody>
-            {students && students.map((student, index) => (
+            {sortedData && sortedData.map((student, index) => (
          
               <tr key={index}>
                 <th>{index + 1}</th>
@@ -57,9 +63,8 @@ const StudentDetails = ({ students }) => {
                 <th className={styles.space}>{student.parentphone}</th>
                 <th className={styles.space}>{student.parent? <button>Parents</button> : 'No parent yet'}</th>
                 <th className={`${styles.space} ${styles.click}`}><IoCloudUploadOutline onClick={() => {exec(student.regNo)}} size={25}/></th>
-                <th className={`${styles.space} ${styles.click}`}><HiOutlineViewfinderCircle size={25}/></th>
+                {/* <th className={`${styles.space} ${styles.click}`}><HiOutlineViewfinderCircle size={25}/></th> */}
               </tr>
-              
             ))}
           </tbody>
         </table>

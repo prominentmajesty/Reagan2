@@ -1,71 +1,141 @@
 'use client';
-import React, { useEffect, useState, useRef } from 'react';
-import { useFormState } from "react-dom";
+import React, { useState, useRef } from 'react';
+import { MdClose } from "react-icons/md";
 import styles from './studentForm.module.css';
-import { studentDetails } from '@/lib/action';
 
 const StudentForm = ({ update }) => {
-
-    const ref = useRef(null);
-    const [state, formAction] = useFormState(studentDetails, undefined);
     
     const [message, setMessage] = useState(false);
+    const [error, setError] = useState(false);
+    const [state, setState] = useState(null);
 
-    useEffect(() => {
-      if(message === true){
-        setTimeout(() => {
-          setMessage(false);
-        }, 3000);
-      }
-    }, [message])
+    
+    const firstname = useRef(null);
+    const othernames = useRef(null);
+    const age = useRef(null);
+    const gender = useRef(null);
+    const classAdmited = useRef(null);
+    const section = useRef(null);
+    const parentphone = useRef(null);
 
-    useEffect(() => { 
-      if(state){
-        if(state.success){
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const formData = {
+        firstname: firstname.current.value,
+        othernames: othernames.current.value,
+        age: age.current.value,
+        gender: gender.current.value,
+        classAdmited : classAdmited.current.value, 
+        section : section.current.value,
+        parentphone : parentphone.current.value,
+      };
+
+      try {
+
+        const response = await fetch('/api/user/register', {
+          method : 'POST',
+          headers : {
+            'Content-Type' : 'application/json'
+          },
+          body : JSON.stringify({
+            firstname : formData.firstname,
+            othernames : formData.othernames,
+            age: formData.age,
+            gender: formData.gender,
+            classAdmited : formData.classAdmited, 
+            section : formData.section,
+            parentphone : formData.parentphone,
+          })
+
+        });
+
+        if(response.status === 200) {
+          setError(false);
           setMessage(true);
-          ref.current.reset();
-          update();
+          firstname.current.value = '';
+          othernames.current.value = '';
+          age.current.value = '';
+          gender.current.value = '';
+          classAdmited.current.value = ''; 
+          section.current.value = '';
+          parentphone.current.value = '';
         }
+
+        const res = await response.json();
+        setState(res);
+
+        update();
+        
+      } catch (error) {
+        console.log(error)
+        setError(true);
       }
-    }, [state])
+    };
+
+    const close = () => {
+      setState(null)
+      setMessage(false)
+    }
    
     return (
-      <form ref={ref} className={styles.form} action={formAction}>
+      <form className={styles.form} onSubmit={handleSubmit}>
     
         <legend>Enter student's Records</legend>
 
         {
-          message? <div className={styles.flash}>Data Upload was successful..</div> : ''
+          message? <div className={styles.flash}>
+            <MdClose onClick={()=> {close()}} className={styles.close} color='white' size={25} />
+            <h6>Data Upload was successful !!</h6>
+            <h6>RegNo : {state?.regNo}</h6>
+          </div> : ''
         }
 
-        <div className="for-firstName">
-          <label htmlFor='firstName'>First Name</label>
-          <input id="firstName" type="text" className={styles.input} placeholder="first name" name="firstname" />
+        <div className="for-firstname">
+          <label htmlFor='firstname'>First name</label>
+          <input ref={firstname} id="firstname" type="text" className={styles.input} placeholder="first name" required/>
         </div>
 
-        <div className="for-otherNames">
-          <label htmlFor='otherNames'>Other Names</label>
-          <input id="otherNames" type="text" className={styles.input} placeholder="other names" name="othernames" />
+        <div className="for-othernames">
+          <label htmlFor='othernames'>Other names</label>
+          <input ref={othernames} id="othernames" type="text" className={styles.input} placeholder="other name" required/>
         </div>
 
         <div className="form-age">
           <label htmlFor='age'>Age</label>
-          <input id="age" type="text" className={styles.input} placeholder="age" name="age" />
+          <input ref={age} id="age" type="text" className={styles.input} placeholder="age" required/>
         </div>
 
         <div className="for-gender">
           <label htmlFor='gender'>Gender</label>
-          <input id="gender" type="text" className={styles.input} placeholder="Gender" name="gender" />
+          <input ref={gender} id="gender" type="text" className={styles.input} placeholder="Gender" required />
         </div>
 
         <div className="for-classAdmited">
           <label htmlFor='classAdmited'>CLass Admitted</label>
-          <input id="classAdmited" type="text" className={styles.input} placeholder="CLass Admitted" name="classAdmited" />
+          <select ref={classAdmited} id = 'classAdmited' className={`form-select ${styles.input}`} required>
+            <option selected>Select student's class</option>
+            <option value="activity1">Activity 1</option>
+            <option value="activity2">Activity 2</option>
+            <option value="nursery1">Nursery 1</option>
+            <option value="nursery2">Nursery 2</option>
+            <option value="nursery3">Nursery 3</option>
+            <option value="basic1">Basic 1</option>
+            <option value="basic2">Basic 2</option>
+            <option value="basic3">Basic 3</option>
+            <option value="basic4">Basic 4</option>
+            <option value="basic5">Basic 5</option>
+            <option value="jss1">JSS 1</option>
+            <option value="jss2">JSS 2</option>
+            <option value="jss3">JSS 3</option>
+            <option value="ss1">SS 1</option>
+            <option value="ss2">SS 2</option>
+            <option value="ss3">SS 3</option>
+          </select>
         </div>
         
         <div className="for-section">
           <label htmlFor='section'>Section</label>
-          <select className={`form-select ${styles.input}`} id="section" placeholder="section" name="section" aria-label="Default select example">
+          <select ref={section} className={`form-select ${styles.input}`} id="section" placeholder="section" required>
             <option selected></option>
             <option value="Primary">Primary section</option>
             <option value="Secondary">Secondary section</option>
@@ -74,12 +144,12 @@ const StudentForm = ({ update }) => {
 
         <div className="for-parentphone">
           <label htmlFor='parentphone'>Parent Phone Number</label>
-          <input id="parentphone" type="text" className={styles.input} placeholder="parent phone" name="parentphone" />
+          <input ref={parentphone} id="parentphone" type="text" className={styles.input} placeholder="parent phone" required/>
         </div>
         
-        <button className={styles.formBTN}>Upload information</button>
+        <button type='submit' className={styles.formBTN}>Upload information</button>
         
-        <div className={styles.studentFormError}>{state?.error}</div>
+        {error ? <div className={styles.studentFormError}>Could not register student because something went wrong !!</div> : ''}
       </form>
   )
 }

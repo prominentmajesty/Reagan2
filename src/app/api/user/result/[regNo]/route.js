@@ -1,11 +1,13 @@
 import { connectToDb } from "@/lib/utils";
 import { Students } from "@/lib/students";
+import { stringifyCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 //For Getting Student's Details Before Result Upload
 export const GET = async (request, { params }) => {
         const arr = params.regNo.split('');
         arr.splice(3, 0, "/");
-        arr.splice(8, 0, "/");
+        arr.splice(7, 0, "/");
+        arr.splice(12, 0, "/");
         const str = arr.join('');
     try {
         connectToDb();

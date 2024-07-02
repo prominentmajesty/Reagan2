@@ -39,3 +39,8 @@
     flex-direction: column;
     overflow: scroll;
 }
+
+.action_btn{
+    display: flex;
+    gap: 0.5rem;
+}

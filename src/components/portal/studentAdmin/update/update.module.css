@@ -1,0 +1,48 @@
+.update{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 2rem;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.close{
+    text-align: right;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.close_btn:hover{
+cursor: pointer;
+}
+
+@media (min-width : 802px) {
+    .content{
+        width: 50%;
+        margin: 0px auto;
+        height: 65vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        overflow-y: scroll;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width : 802px) {
+    .content{
+        width: 85%;
+        margin: 0px auto;
+        height: 65vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        overflow-y: scroll;
+        border-radius: 10px;
+    }
+}

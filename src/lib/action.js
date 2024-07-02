@@ -76,17 +76,15 @@ export const handleLogout = async () => {
   }
 };
 
-export const studentDetails = async (prevState, formData) => {
+/*export const studentDetails = async (prevState, formData) => {
   const {
-
-    firstname, 
+    firstname,
     othernames,
     age,
     gender,
     classAdmited,
     section,
     parentphone,
-
   } = Object.fromEntries(formData);
 
   const str = 'SRS'
@@ -99,7 +97,7 @@ export const studentDetails = async (prevState, formData) => {
     const doc = new Students({
       regNo,
       firstname,
-      othernames,
+      othernames, 
       age,
       gender,
       classAdmited,
@@ -123,7 +121,7 @@ export const studentDetails = async (prevState, formData) => {
     console.log(err);
     return { error : 'Could not upload student data. No field should be empty'}
   }
-}
+} */
 
 export const revalidate = (data) => {
   revalidatePath("/portal");

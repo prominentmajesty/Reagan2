@@ -3,25 +3,35 @@
     .form{
         display: flex;
         flex-direction: column;
-        gap: 1.1rem;
+        gap: 0.5rem;
         border: 1px solid gray;
         width: 95%;
         padding: 2rem;
     }
 
     .flash{
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
         background-color: rgb(3, 168, 58);
-        padding: 1.3rem;
         border-radius: 5px;
-        font-size: larger;
+        padding: 0.5rem;
     }
 }
 
 @media (min-width : 1013px) {
+
+    .close:hover{
+        cursor: pointer;
+    }
+
     .flash{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         background-color: rgb(3, 168, 58);
-        padding: 0.8rem;
-        border-radius: 5px
+        border-radius: 5px;
+        padding: 0.5rem;
     }
     .form{
         width: 31%;

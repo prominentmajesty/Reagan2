@@ -14,9 +14,7 @@ const Portal = ({session}) => {
 
   const [open, setOpen] = useState(false);
   const [state, setState] = useState(null);
-  const [students, setStudents] = useState(null);
-
-  var arr;
+  const [students, setStudents] = useState([]);
 
   const [input, setInput] = useState({
     search : ''
@@ -38,9 +36,13 @@ const Portal = ({session}) => {
         data : input
       }),
     });
-    const student = await res.json();
-    const spread = [{...student}]
-    setStudents(spread);
+    if(res.status === 200) {
+      const student = await res.json();
+      const spread = [{...student}]
+      setStudents(spread);
+    }else{
+      console.log('faild to register student..')
+    }
    }catch(err){
     console.log(err);
    }
@@ -122,6 +124,27 @@ const Portal = ({session}) => {
                       </div>
                       <StudentDetails students={students}/>
                       <StudentForm update={update} />
+                      {/* <div className={styles.auto_Search}>
+                        <select class="form-select" aria-label="Default select example">
+                        <option selected>Select student's class</option>
+                        <option value="activity1">Activity 1</option>
+                        <option value="activity2">Activity 2</option>
+                        <option value="nursery1">Nursery 1</option>
+                        <option value="nursery2">Nursery 2</option>
+                        <option value="nursery3">Nursery 3</option>
+                        <option value="basic1">Basic 1</option>
+                        <option value="basic2">Basic 2</option>
+                        <option value="basic3">Basic 3</option>
+                        <option value="basic4">Basic 4</option>
+                        <option value="basic5">Basic 5</option>
+                        <option value="jss1">JSS 1</option>
+                        <option value="jss2">JSS 2</option>
+                        <option value="jss3">JSS 3</option>
+                        <option value="ss1">SS 1</option>
+                        <option value="ss2">SS 2</option>
+                        <option value="ss3">SS 3</option>
+                        </select>
+                      </div> */}
                     </div>
                   </div>
                 </div>
