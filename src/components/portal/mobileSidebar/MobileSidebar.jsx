@@ -43,7 +43,7 @@ const MobileSidebar = ({open, close}) => {
           <TbCloudDownload size={30}/> <b>View Results</b>
         </span> 
         <span onClick={() => MyRouter.push('/profile')} className={`${styles.sidebar_contents} ${pathName === '/profile' && styles.active}`}>
-          <GiEgyptianProfile size={30}/> <b>Change Profile</b>
+          <GiEgyptianProfile size={30}/> <b>Update Profile</b>
         </span>
         <span onClick={() => MyRouter.push('/')} className={styles.sidebar_contents}>
           <IoHomeOutline size={30}/> <b> Back to Home</b>

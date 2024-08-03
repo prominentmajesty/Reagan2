@@ -7,6 +7,7 @@ import MobileSidebar from '../mobileSidebar/MobileSidebar';
 import SuspenseWork from '../suspense/Suspense';
 import Unqualified from '../unqualified/Unqualified';
 import { useRouter } from "next/navigation";
+import Component from './component/Component';
 
 const Parents = ({session}) => {
     const [open, setOpen] = useState(false);
@@ -44,8 +45,9 @@ const Parents = ({session}) => {
               <div className={styles.parents}>
                 <Sidebar/>
                 <div className={styles.right}>
-                  <HandBurger open={open} handleClicked={handleClicked}/>
+                   <HandBurger open={open} handleClicked={handleClicked}/>
                   <div className={styles.right_color}>
+                    <Component />
                   </div>
                 </div>
               </div>

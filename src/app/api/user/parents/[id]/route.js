@@ -1,6 +1,17 @@
 import { connectToDb } from "@/lib/utils";
 import { Parents } from "@/lib/parents";
 
+export const GET = async (request, {params}) => {
+    const phone = params.id;
+    try {
+            const res = await Parents.findOne({phone});
+            return new Response(JSON.stringify(res), {status : 200});
+    }catch(err){
+        console.log(err);
+        return new Response(err, {status : 501});
+    }
+}
+
 export const PATCH = async (request, {params}) => {
     try {
 

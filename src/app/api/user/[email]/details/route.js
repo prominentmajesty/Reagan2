@@ -50,3 +50,4 @@ export const DELETE = async(request, {params}) => {
         console.log(err);
     }
 }
+

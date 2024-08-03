@@ -18,11 +18,11 @@ const userSchema = new mongoose.Schema(
             type : String,
         },
 
-        firstName : {
+        firstname : {
             type : String,
         },
 
-        otherNames : {
+        othernames : {
             type : String,
         },
 
@@ -38,15 +38,15 @@ const userSchema = new mongoose.Schema(
             type : String,
         },
 
-        State : {
+        state : {
             type : String,
         },
 
-        Nationality : {
+        nationality : {
             type : String,
         },
 
-        Address : {
+        address : {
             type : String,
         },
 

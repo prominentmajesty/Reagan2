@@ -154,14 +154,14 @@ function TeacherAdmin({session}) {
                               <input checked={user.isAdmin} className={`form-check-input ${styles.ckeck_btn}`} type="checkbox" value="" id='flexCheckDefault'/>
                             </div>
                           </th>
-                          <th>{user.firstName}</th>
-                          <th>{user.otherName}</th>
+                          <th>{user.firstname}</th>
+                          <th>{user.othername}</th>
                           <th>{user.section}</th>
                           <th>{user.contact}</th>
                           <th>{user.LGA}</th>
                           <th>{user.state}</th>
-                          <th>{user.Nationality}</th>
-                          <th>{user.Address}</th>
+                          <th>{user.nationality}</th>
+                          <th>{user.address}</th>
                           <th>
                             <div className={`form-check form-switch ${styles.status}`}>
                               <input onClick={(e) => {teacher(e, user.email)}} className={`btn btn-primary ${styles.btn_action}`} type="reset" value={user.isTeacher ? "Remove teacher" : "Add teacher"}/>

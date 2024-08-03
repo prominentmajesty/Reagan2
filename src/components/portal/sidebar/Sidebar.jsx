@@ -19,22 +19,22 @@ const Sidebar = () => {
   const pathName = usePathname();
 
   return (
-    <div className={styles.left}>
+    <div className={styles.left}> 
       <Image src={images.profile} className={styles.profile_img}/>
       <span onClick={() => MyRouter.push('/portal')} className={`${styles.sidebar_contents} ${pathName === '/portal' && styles.active}`}>
         <PiStudent size={30}/> <b>Upload Students</b>
       </span> 
       <span onClick={() => MyRouter.push('/parents')} className={`${styles.sidebar_contents} ${pathName === '/parents' && styles.active}`}>
-        <RiParentLine size={30}/> <b>view Parents</b>
+        <RiParentLine size={30}/> <b>View Parents</b>
       </span> 
       <span onClick={() => MyRouter.push('/updates')} className={`${styles.sidebar_contents} ${ pathName === '/updates' ? styles.active : ''}`}>
-        <BsCloudUpload size={30}/> <b>view Updates</b>
+        <BsCloudUpload size={30}/> <b>View Updates</b>
       </span> 
       <span onClick={() => MyRouter.push('/viewresult')} className={`${styles.sidebar_contents} ${pathName === '/viewresult' && styles.active}`}>
-        <TbCloudDownload size={30}/> <b> view Results</b>
+        <TbCloudDownload size={30}/> <b> View Results</b>
       </span> 
       <span onClick={() => MyRouter.push('/profile')} className={`${styles.sidebar_contents} ${pathName === '/profile' && styles.active}`}>
-        <GiEgyptianProfile size={30}/> <b>change Profile</b>
+        <GiEgyptianProfile size={30}/> <b>Update Profile</b>
       </span>
       <span onClick={() => MyRouter.push('/')} className={styles.sidebar_contents}>
         <IoHomeOutline size={30}/> <b> Back to Home</b>
